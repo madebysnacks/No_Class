@@ -16,6 +16,6 @@ No Class is a blank slate. No Class encourages minimalism, efficiency, and creat
 ## Why Make This ?
 Semantic HTML markup provides dozens of usable targets to start, drive, and maintain your projects. This Blank Slate perspective enables more creativity and learning opportunities. No Class uses this foundation to provide the best, leanest, and most efficient stylesheet that can help kickstart any web based idea. It is designed to look great on all screen sizes and devices, and it set up for rapid prototyping and scaling.
 
-***
+---
 
 No Class is released under the permissive MIT license so you can freely use it however you like. Personal projects, commercial ventures, and errant forks that have No Class are all cool. Happy coding.
