@@ -4,26 +4,27 @@ Snacks Studio | https://www.madebysnacks.com
 */
 @font-face {font-family:'add_font_name_here'; src:url(fonts/font_file_name.ttf);}
 :root {
-    --font-primary:     Helvetica, Arial, sans-serif;
-    --font-secondary:   serif;
-    --rem-base:         16px;
+    --font-primary:         Helvetica, Arial, sans-serif;
+    --font-secondary:       serif;
+    --rem-base:             16px;
 
-    --color-primary:    #FFFFFF;
-    --color-secondary:  #F9F9FB;
-    --color-tertiary:   #fff396;
-    --color-accent:     #163bdd;
-    --color-bg:         #1D1D1D;
+    --clr-primary:        #FFFFFF;
+    --clr-secondary:      #F9F9FB;
+    --clr-tertiary:       #DDDDDD;
+    --clr-accent:         #163bdd;
+    --clr-bg:             #1D1D1D;
+    --clr-fill:           #fff396;
 
-    --space-xl:         5rem;
-    --space-lg:         3rem;
-    --space-md:         2.5rem;
-    --space-sm:         1.75rem;
-    --space-xs:         0.875rem;
+    --spc-xl:             5rem;
+    --spc-lg:             3rem;
+    --spc-md:             2.5rem;
+    --spc-sm:             1.25rem;
+    --spc-xs:             0.875rem;
     
-    --border-color:     var(--color-secondary);
-    --border-radius:    0.25rem;
+    --border-color:         var(--clr-secondary);
+    --border-radius:        0.25rem;
 
-    --animation-duration: 0.1s;
+    --animation-duration:   0.1s;
 }
 *, *::before, *::after {
     box-sizing: border-box;
@@ -32,8 +33,8 @@ Snacks Studio | https://www.madebysnacks.com
     vertical-align: baseline;
 }
 -moz-::selection, -webkit-::selection, ::selection {
-    color: var(--color-primary);
-    background: var(--color-bg);
+    color: var(--clr-primary);
+    background: var(--clr-bg);
 }
 [hidden] {display:none;}
 html {
@@ -49,7 +50,7 @@ html {
 }
 body {
     font-family: var(--font-primary);
-    line-height: 1.5;
+    line-height: 1.4;
     overflow-x: hidden;
     width: 100%;
     word-break: break-word;
@@ -66,7 +67,7 @@ a, button, input[type="submit"], input[type="reset"], input[type="button"] {
     font-style: inherit;
     margin: 0;
     outline: 0;
-    -webkit-tap-highlight-color: var(--color-accent);
+    -webkit-tap-highlight-color: var(--clr-accent);
 }
 button[disabled], input[type="submit"][disabled], input[type="reset"][disabled], input[type="button"][disabled] {
     cursor: not-allowed;
@@ -77,7 +78,7 @@ a {
     text-decoration: underline;
 }
     a:hover {
-        color: var(--color-accent);
+        color: var(--clr-accent);
     }
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-primary);
@@ -105,9 +106,9 @@ abbr {
         left: 50%;
         display: block;
         padding: 0.5rem 0.7rem;
-        background: var(--color-secondary);
+        background: var(--clr-secondary);
         border-radius: var(--border-radius);
-        color: var(--color-primary);
+        color: var(--clr-primary);
         width: 10rem;
     }
 address {
@@ -117,6 +118,12 @@ article {
     margin: 0;
 }
 aside {
+    margin: 0;
+}
+main {
+    margin: 0;
+}
+section {
     margin: 0;
 }
 audio {
@@ -133,13 +140,21 @@ blockquote, q {
 br {
     margin: 0;
 }
-button {
-    background: var(--color-secondary);
-    border: 1px solid #CCCCCC;
+button,
+input[type=submit],
+input[type=reset] {
+    background: var(--clr-secondary);
+    border: 1px solid var(--clr-tertiary);
     border-radius: var(--border-radius);
-    font-size: 0.9rem;
+    font-size: 1rem;
     padding: 0.1rem 0.4rem;
+    border-radius: 3rem;
 }
+    button:hover,
+    input[type=submit]:hover,
+    input[type=reset]:hover {
+        background: var(--clr-primary);
+    }
 canvas, figure, img, picture, video, svg {
     margin: 0;
     max-width: 100%;
@@ -155,19 +170,19 @@ code, samp {
     margin: 0;
 }
 code {
-    background: var(--color-secondary);
-    border: 1px solid #CCCCCC;
+    background: var(--clr-secondary);
+    border: 1px solid var(--clr-tertiary);
     border-radius: var(--border-radius);
     font-size: 0.9rem;
     padding: 0.1rem 0.4rem;
     position: relative;
-    top: -.1rem;
+    top: -0.1rem;
 }
 datalist {
     margin: 0;
 }
 del {
-    background: var(--color-tertiary);
+    background: var(--clr-tertiary);
     margin: 0;
 }
 details {
@@ -187,7 +202,7 @@ details {
         margin-bottom: 0;
     }
     summary::-webkit-details-marker {
-        color: var(--color-secondary);
+        color: var(--clr-secondary);
     }
 dfn {
     font-family: var(--font-secondary);
@@ -198,8 +213,8 @@ dfn {
     margin: 0;
 }
 dialog {  
-    background: var(--color-tertiary);
-    border: 1px solid var(--color-secondary);
+    background: var(--clr-tertiary);
+    border: 1px solid var(--clr-secondary);
     border-radius: 1rem;
     border: 2px solid;
     box-shadow: 0 0 3rem rgba(0,0,0,0.2);
@@ -219,9 +234,9 @@ dd {
         content: '→ ';
     }
 dt {
-	font-weight: bold;
+	font-weight: 600;
 }
-fieldset {border-color:var(--color-secondary);}
+fieldset {border-color:var(--clr-secondary);}
     fieldset legend {font-weight:bold; padding:0 1rem 0 0;}
     fieldset:hover {background:rgba(255, 192, 204, 0.1);}
         fieldset:hover legend {padding:0 0 0 1rem;}
@@ -234,9 +249,51 @@ footer {
 }
 form {
     margin: 0;
+    text-align: left;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
+    form div {
+        margin: 0 0 var(--spc-xs);
+        width: 50%;
+    }
+    form div > label {
+        display: flex;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+    }
+    form input[type=text],
+    form input[type=email],
+    form input[type=tel],
+    form textarea {
+        background: var(--clr-secondary);
+        border: 1px solid var(--clr-tertiary);
+        border-radius: var(--border-radius);
+        padding: 1px 2px;
+        min-width: 50%;
+    }
+    form textarea {min-height: var(--spc-md);}
+    form input[type=radio],
+    form input[type=radio] + label,
+    form input[type=checkbox],
+    form input[type=checkbox] + label {
+        display: inline-flex;
+    }
+    form input[type=submit],
+    form input[type=reset] {
+        display: inline-flex;
+        margin: 0 0.5rem 0 0;
+        padding: 0.2rem 1rem;
+    }
+    form br + label,
+    form input[type=text] + label,
+    form input[type=email] + label {
+        margin-top: var(--spc-xs);
+    }
 kbd {
-    background: var(--color-tertiary);
+    background: var(--clr-tertiary);
     padding: 2px;
 }
 header {
@@ -244,7 +301,7 @@ header {
 }
 hr {
     height: 1px;
-    background: var(--color-secondary);
+    background: var(--clr-secondary);
 }
 input, button, textarea, select {
     font: inherit;
@@ -262,11 +319,8 @@ label {
 legend {
     font-size: 0.6rem;
 }
-main {
-    margin: 0;
-}
 mark {
-    background: var(--color-tertiary);
+    background: var(--clr-fill);
 }
 meter {
     margin: 0;
@@ -281,7 +335,7 @@ q {
     font-size: 2rem;
     line-height: 1.8rem;
     padding: 1rem;
-    border-left: 5px dashed var(--color-secondary);
+    border-left: 5px dashed var(--clr-secondary);
     font-style: italic;
     margin: 1rem 0;
     background: rgba(255, 182, 193, .4);
@@ -295,9 +349,6 @@ progress {
     margin: 0 0.5rem;
     position: relative;
     top: 0.2rem;
-}
-section {
-    margin: 0;
 }
 select {
     margin: 0;
@@ -329,13 +380,13 @@ table {
         text-align: left;
     }
     table td, table th {
-        padding: 6px;
+        padding: 0.25rem;
         text-align: left;
         vertical-align: top;
         word-wrap: break-word;
     }
     table thead, table tfoot {
-        border-bottom: 1px solid var(--color-secondary);
+        border-bottom: 1px solid var(--clr-secondary);
     }
 textarea {
     resize: vertical;
@@ -351,45 +402,46 @@ time {
 #myTemplate {
     background-color: DodgerBlue;
     border-radius: var(--border-radius);
-    color: var(--color-primary);
+    color: var(--clr-primary);
     margin: 1rem 0;
     padding: 1rem;
     text-align: center;
 }
 
+html:has(body #theme-toggle:checked) {
+    color-scheme:               dark;
+    --clr-primary:            #000;
+    --clr-secondary:          #1D1D1F;
+    --clr-tertiary:           #333333;
+    --clr-accent:             magenta;
+    --clr-bg:                 white;
+    --clr-fill:               magenta;
+}
+
 /* Media Queries */
 
-@media (prefers-reduced-motion: reduce) {html {scroll-behavior:auto;}}
-@media (prefers-color-scheme: dark) {
-    :root {
-        --color-primary:    #FFFFFF;
-        --color-secondary:  #CCCCCC;
-        --color-tertiary:   #DDDDDD;
-        --color-accent:     #FFC700;
-        --color-bg:         #1D1D1D;
-    }
-}
+@media (prefers-reduced-motion: reduce) {html {scroll-behavior: auto;}}
 @media screen and (min-width:768px) {
     :root {
-        --space-lg:         3.5rem;
-        --space-md:         3rem;
-        --space-sm:         1.75rem;
+        --spc-lg:         3.5rem;
+        --spc-md:         3rem;
+        --spc-sm:         1.5rem;
     }
     h1 {font-size: 48px; line-height: 1.1;}
     h2 {font-size: 40px; line-height: 1.1;}
-    h3 {font-size: 32px; line-height: 1.125;}
+    h3 {font-size: 32px; line-height: 1.12;}
     h4 {font-size: 28px; line-height: 1.42;}
 }
 @media screen and (min-width:1024px) {
     :root {
-        --space-lg:         4rem;
-        --space-md:         3.25rem;
-        --space-sm:         2rem;
+        --spc-lg:         4rem;
+        --spc-md:         3.5rem;
+        --spc-sm:         2rem;
     }
     h1 {font-size: 64px; line-height: 1.05;}
     h2 {font-size: 48px; line-height: 1.05;}
     h3 {font-size: 40px; line-height: 1.1;}
-    h4 {font-size: 32px; line-height: 1.125;}
+    h4 {font-size: 32px; line-height: 1.12;}
 }
 @media print {
     body, pre, code, summary, details, button, input, textarea, section, aside, nav, time, span, table {

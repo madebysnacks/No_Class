@@ -35,33 +35,39 @@
     <link rel="stylesheet" href="no_class.css">
     <style>
         /* demo-specific classes and configurations */
+        html {
+            color-scheme: light;
+        }
         .space {
-            background: #EAF4EA;
+            background: var(--clr-secondary);
+            border: 1px solid var(--clr-tertiary);
+            border-radius: var(--border-radius);
+            cursor: default;
             display: flex;
             width: 100%;
-            margin: var(--space-xs) 0 0;
             padding: 0 0 0 0.5rem;
             align-items: center;
             flex-flow: row nowrap;
             font-size: 0.8rem;
         }
-            .space:hover {background:#EAF4EA90;}
-        .space.xl {height:var(--space-xl);}
-        .space.lg {height:var(--space-lg);}
-        .space.md {height:var(--space-md);}
-        .space.sm {height:var(--space-sm);}
-        .space.xs {height:var(--space-xs);}
+            .space:not(:first-of-type) {margin: var(--spc-xs) 0 0;}
+            .space:hover {background: var(--clr-primary);}
+        .space.xl {height:var(--spc-xl);}
+        .space.lg {height:var(--spc-lg);}
+        .space.md {height:var(--spc-md);}
+        .space.sm {height:var(--spc-sm);}
+        .space.xs {height:var(--spc-xs);}
         main {
             padding: 0 1rem 1rem;
             margin: 0 auto;
             max-width: 1000px;
         }
         h6.headline {
-            border-bottom: 2px solid lightgray;
+            border-bottom: 2px solid var(--clr-tertiary);
             color: gray;
             cursor: default;
             padding-bottom: 1rem;
-            margin: var(--space-lg) 0 var(--space-sm);
+            margin: var(--spc-lg) 0 var(--spc-sm);
         }
         h6.headline+h1 {padding-top:0;}
         p>code {
@@ -70,10 +76,10 @@
             margin-right: 0.25rem;
         }
         footer {
-            background: var(--color-secondary);
-            border-top: 1px solid lightgray;
-            padding: var(--space-sm) 0;
-            margin: var(--space-xl) 0 0;
+            background: var(--clr-secondary);
+            border-top: 1px solid var(--clr-tertiary);
+            padding: var(--spc-sm) 0;
+            margin: var(--spc-xl) 0 0;
         }
             footer main {
                 display: flex;
@@ -82,13 +88,19 @@
                 align-items: flex-end;
                 padding: 0 1rem;
             }
+            footer svg:hover g {
+                fill: var(--clr-accent);
+            }
         button {
             border-radius: 3rem;
             padding: 0.2rem 1rem;
             margin: 0 0 0 0.2rem;
         }
+            button:hover {
+                background: var(--clr-primary);
+            }
         aside {
-            margin: 0 0 var(--space-xs);
+            margin: 0 0 var(--spc-xs);
         }
     </style>
     <title>No Class Demo</title>
@@ -98,8 +110,15 @@
     </header>
     <main>
         <h6 class="headline">No_Class Demo</h6>
-        <p><b>No_Class</b> is a <u>modern</u> stylesheet driven <em>exclusively</em> by <mark>native</mark> markup. Does you project have No_Class ? Get started by visiting <a href="https://github.com/madebysnacks/No_Class">the Github page</a> and reviewing this demo page.</p>
-        <h6 class="headline">Typography</h6>
+        <section>
+            <p><b>No_Class</b> is a <u>modern</u> stylesheet driven <em>exclusively</em> by <mark>native</mark> markup. Does you project have No_Class ? Get started by visiting <a href="https://github.com/madebysnacks/No_Class">the Github page</a> and reviewing this demo page.</p>
+            <br>
+            <p>
+                <input type="checkbox" id="theme-toggle" />
+                <label for="theme-toggle"> Dark mode</label>
+            </p>
+        </section>
+        <h6 class="headline">Standalone Type Styles</h6>
         <aside>
             <span>Align: </span>
             <button type="button" onclick="alignLeft()">Left</button>
@@ -135,20 +154,61 @@
         <h6 class="headline">Spacing</h6>
         <section>
             <div class="space xl">
-                <span>space xl (LG: 80, MD: 80, SM: 80)</span>
+                <samp>spc-xl (LG, MD, SM: 80px)</samp>
             </div>
             <div class="space lg">
-                <span>space lg (LG: 64, MD: 56, SM: 48)</span>
+                <samp>spc-lg (LG: 64px, MD: 56px, SM: 48px)</samp>
             </div>
             <div class="space md">
-                <span>space md (LG: 52, MD: 48, SM: 40)</span>
+                <samp>spc-md (LG: 56px, MD: 48px, SM: 40px)</samp>
             </div>
             <div class="space sm">
-                <span>space sm (LG: 32, MD: 28, SM: 28)</span>
+                <samp>spc-sm (LG: 32px, MD: 24px, SM: 20px)</samp>
             </div>
             <div class="space xs">
-                <span>space xs (LG: 14, MD: 14, SM: 14)</span>
+                <samp>spc-xs (LG, MD, SM: 14px)</samp>
             </div>
+        </section>
+        <h6 class="headline">Form</h6>
+        <section>
+            <form>
+                <div>
+                    <label for="email">Email (required)</label>
+                    <input type="email" required name="email" id="email" placeholder="hello@madebysnacks.com">
+                    <label for="id">Read-only</label>
+                    <input type="text" readonly name="id" id="id" value="8008135">
+                    <label for="disabled">Disabled</label>
+                    <input type="text" disabled name="disabled" id="disabled" placeholder="Can't touch me">
+                    <label for="about">Textarea</label>
+                    <textarea name="about" id="about" placeholder="And how does that make you feel..."></textarea>
+                </div>
+                <div>
+                    <label>Select one option:</label>
+                    <aside>
+                        <input type="radio" id="radio1" name="fullName" value="radio1">
+                        <label for="radio1">Radio 1</label>
+                        <br>
+                        <input type="radio" id="radio2" name="fullName" value="radio2">
+                        <label for="radio2">Radio 2</label>
+                        <br>
+                        <input type="radio" id="radio3" name="fullName" value="radio3">
+                        <label for="radio3">Radio 3</label>
+                    </aside>
+                    <label>Select one or more option:</label>
+                    <aside>
+                        <input type="checkbox" name="check" id="check">
+                        <label for="check">Checkbox 1</label>
+                        <br>
+                        <input type="checkbox" name="check" id="check2">
+                        <label for="check2">Checkbox 2</label>
+                        <br>
+                        <input type="checkbox" name="check" id="check3">
+                        <label for="check3">Checkbox 3</label>
+                    </aside>
+                </div>
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </form>
         </section>
     </main>
     <footer>
@@ -156,7 +216,7 @@
             <a href="https://www.madebysnacks.com">
             <svg width="131px" height="20px" viewBox="0 0 131 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                    <g transform="translate(-25, -25)" fill="#000000" fill-rule="nonzero">
+                    <g transform="translate(-25, -25)" fill="var(--clr-bg)" fill-rule="nonzero">
                         <g id="logo-snacks" transform="translate(25, 25)">
                             <path d="M113.045685,16.8355129 L115.771596,14.4487386 C117.927138,16.1238862 120.590379,16.9688959 123.294061,16.8355129 C125.417125,16.8355129 126.386921,16.4332475 126.386921,15.6018992 C126.386921,14.7705509 125.888918,14.5560094 124.578384,14.421921 L119.02172,13.992838 C115.614332,13.6710257 113.963059,12.3301413 113.963059,9.88973174 C113.963059,7.02023915 116.846234,5.35754251 121.826263,5.35754251 C125.027228,5.16619244 128.194335,6.11369334 130.790315,8.03931129 L128.405143,10.4260855 C126.422627,8.92071659 123.972087,8.20570946 121.511734,8.41475891 C119.41488,8.41475891 118.576138,8.73657117 118.576138,9.56791948 C118.576138,10.3992678 119.074141,10.5333562 120.437097,10.6674447 L125.679232,11.1233454 C129.427359,11.498793 131,12.7324066 131,15.2532693 C131,18.283668 128.011983,20 122.612583,20 C118.26161,20 114.749379,18.8736571 113.045685,16.8355129 Z" id="Path"></path>
                             <polygon id="Path" points="102.045182 13.134058 98.1202984 15.8922101 98.1202984 19.2807971 93.0964467 19.2807971 93.0964467 0 98.0941325 0 98.0941325 11.6893116 105.577578 6.19927536 112.119052 6.19927536 105.839237 10.8487319 112.380711 19.3333333 106.702712 19.3333333"></polygon>
