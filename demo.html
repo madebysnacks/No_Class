@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no"/>
+    <meta name="HandheldFriendly" content="True"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="description" content="No Class">
+    <meta name="author" content="Snacks Studio"/>
+    <meta name="copyright" content="2024 Snacks Studio">
+    <link rel="canonical" href="https://www.madebysnacks.com/">
+    <link rel="profile" href="https://www.madebysnacks.com">
+    <meta property="og:title" content="No Class - Snacks Studio"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://www.madebysnacks.com"/>
+    <meta property="og:site_name" content="No Class - Snacks Studio">
+    <meta property="og:description" content="No Class - Snacks Studio"/>
+    <meta property="og:locale" content="en_US">
+    <!-- <meta property="og:image" content="og-image.png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="600"/>
+    <link rel="icon" href="favicon.svg" sizes="16x16">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png" sizes="512x512"> -->
+    <meta name="robots" CONTENT="all, index, follow">
+    <meta name="GOOGLEBOT" CONTENT="INDEX, FOLLOW">
+    <meta name="geo.region" content="US-TX">
+    <meta name="geo.placename" content="Austin">
+    <meta name="geo.position" content="30.2672, -97.7431">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="No Class | Snacks Studio">
+    <link rel="stylesheet" href="no_class.css">
+    <style>
+        /* demo-specific classes and configurations */
+        .space {
+            background: #EAF4EA;
+            display: flex;
+            width: 100%;
+            margin: var(--space-xs) 0 0;
+            padding: 0 0 0 0.5rem;
+            align-items: center;
+            flex-flow: row nowrap;
+            font-size: 0.8rem;
+        }
+            .space:hover {background:#EAF4EA90;}
+        .space.xl {height:var(--space-xl);}
+        .space.lg {height:var(--space-lg);}
+        .space.md {height:var(--space-md);}
+        .space.sm {height:var(--space-sm);}
+        .space.xs {height:var(--space-xs);}
+        main {
+            padding: 0 1rem 1rem;
+            margin: 0 auto;
+            max-width: 1000px;
+        }
+        h6.headline {
+            border-bottom: 2px solid lightgray;
+            color: gray;
+            cursor: default;
+            padding-bottom: 1rem;
+            margin: var(--space-lg) 0 var(--space-sm);
+        }
+        h6.headline+h1 {padding-top:0;}
+        p>code {
+            min-width: 50px;
+            text-align: center;
+            margin-right: 0.25rem;
+        }
+        footer {
+            background: var(--color-secondary);
+            border-top: 1px solid lightgray;
+            padding: var(--space-sm) 0;
+            margin: var(--space-xl) 0 0;
+        }
+            footer main {
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: flex-end;
+                align-items: flex-end;
+                padding: 0 1rem;
+            }
+        button {
+            border-radius: 3rem;
+            padding: 0.2rem 1rem;
+            margin: 0 0 0 0.2rem;
+        }
+        aside {
+            margin: 0 0 var(--space-xs);
+        }
+    </style>
+    <title>No Class Demo</title>
+</head>
+<body>
+    <header>
+    </header>
+    <main>
+        <h6 class="headline">No_Class Demo</h6>
+        <p><b>No_Class</b> is a <u>modern</u> stylesheet driven <em>exclusively</em> by <mark>native</mark> markup. Does you project have No_Class ? Get started by visiting <a href="https://github.com/madebysnacks/No_Class">the Github page</a> and reviewing this demo page.</p>
+        <h6 class="headline">Typography</h6>
+        <aside>
+            <span>Align: </span>
+            <button type="button" onclick="alignLeft()">Left</button>
+            <button type="button" onclick="alignCenter()">Center</button>
+            <button type="button" onclick="alignRight()">Right</button>
+        </aside>
+        <section id="type">
+            <h1 contenteditable>H1. Headline Level 1</h1>
+            <p>P. Body</p>
+            <h2 contenteditable>H2. Headline Level 2</h2>
+            <p>P. Body</p>
+            <h3 contenteditable>H3. Headline Level 3</h3>
+            <p>P. Body</p>
+            <h4 contenteditable>H4. Headline Level 4</h4>
+            <p>P. Body</p>
+            <h5 contenteditable>H5. Headline Level 5</h5>
+            <p>P. Body</p>
+            <h6 contenteditable>H6. Headline Level 6</h6>
+            <p>P. Body</p>
+            <small>Small. For, like notes</small>
+        </section>
+        <h6 class="headline">Common, Inline Type Styles</h6>
+        <section>
+            <p><code>a</code> Lorem ipsum dolor <a>sit amet consectetur adipisicing</a> elit.</p>
+            <p><code>em</code> Aut harum molestias <em>labore amet possimus exercitationem aperiam earum</em> doloribus nobis.</p>
+            <p><code>dfn</code> <dfn>Adipisicing harum</dfn> molestias labore amet possimus exercitationem aperiam.</p>
+            <p><code>mark</code> Lorem ipsum dolor <mark>sit amet consectetur adipisicing</mark> elit.</p>
+            <p><code>s</code> Adipisicing harum <s>molestias labore amet possimus</s> exercitationem aperiam.</p>
+            <p><code>sub</code> Aut harum molestias labore amet possimus exercitationem <sub>[aperiam earum]</sub> doloribus nobis.</p>
+            <p><code>sup</code> Lorem ipsum dolor <sup>[sit amet consectetur adipisicing]</sup> elit.</p>
+            <p><code>u</code> Aut harum molestias <u>labore amet possimus exercitationem aperiam earum</u> doloribus nobis.</p>
+        </section>
+        <h6 class="headline">Spacing</h6>
+        <section>
+            <div class="space xl">
+                <span>space xl (LG: 80, MD: 80, SM: 80)</span>
+            </div>
+            <div class="space lg">
+                <span>space lg (LG: 64, MD: 56, SM: 48)</span>
+            </div>
+            <div class="space md">
+                <span>space md (LG: 52, MD: 48, SM: 40)</span>
+            </div>
+            <div class="space sm">
+                <span>space sm (LG: 32, MD: 28, SM: 28)</span>
+            </div>
+            <div class="space xs">
+                <span>space xs (LG: 14, MD: 14, SM: 14)</span>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <main>
+            <a href="https://www.madebysnacks.com">
+            <svg width="131px" height="20px" viewBox="0 0 131 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g transform="translate(-25, -25)" fill="#000000" fill-rule="nonzero">
+                        <g id="logo-snacks" transform="translate(25, 25)">
+                            <path d="M113.045685,16.8355129 L115.771596,14.4487386 C117.927138,16.1238862 120.590379,16.9688959 123.294061,16.8355129 C125.417125,16.8355129 126.386921,16.4332475 126.386921,15.6018992 C126.386921,14.7705509 125.888918,14.5560094 124.578384,14.421921 L119.02172,13.992838 C115.614332,13.6710257 113.963059,12.3301413 113.963059,9.88973174 C113.963059,7.02023915 116.846234,5.35754251 121.826263,5.35754251 C125.027228,5.16619244 128.194335,6.11369334 130.790315,8.03931129 L128.405143,10.4260855 C126.422627,8.92071659 123.972087,8.20570946 121.511734,8.41475891 C119.41488,8.41475891 118.576138,8.73657117 118.576138,9.56791948 C118.576138,10.3992678 119.074141,10.5333562 120.437097,10.6674447 L125.679232,11.1233454 C129.427359,11.498793 131,12.7324066 131,15.2532693 C131,18.283668 128.011983,20 122.612583,20 C118.26161,20 114.749379,18.8736571 113.045685,16.8355129 Z" id="Path"></path>
+                            <polygon id="Path" points="102.045182 13.134058 98.1202984 15.8922101 98.1202984 19.2807971 93.0964467 19.2807971 93.0964467 0 98.0941325 0 98.0941325 11.6893116 105.577578 6.19927536 112.119052 6.19927536 105.839237 10.8487319 112.380711 19.3333333 106.702712 19.3333333"></polygon>
+                            <path d="M69.822335,12.6262997 C69.822335,8.10519878 73.6698764,5.33333333 79.968249,5.33333333 C85.3179127,5.33333333 88.8228648,7.2440367 89.7452206,10.7155963 L84.4746159,11.4422018 C83.9212024,9.71987768 82.3400211,8.83180428 79.8628369,8.83180428 C76.9112983,8.83180428 75.0929397,10.2850153 75.0929397,12.653211 C75.0929397,15.0214067 76.9903573,16.5284404 79.8891899,16.5284404 C82.3663741,16.5284404 83.9475555,15.6672783 84.500969,13.9987768 L89.7715736,14.8061162 C88.9282769,18.0085627 85.1861476,20 79.968249,20 C73.7225825,19.9461774 69.822335,17.1204893 69.822335,12.6262997 Z" id="Path"></path>
+                            <path d="M47.8788379,15.7323511 C47.8547049,14.5179885 48.4886045,13.3878353 49.5301958,12.7882136 C51.2524401,11.8927582 53.1614747,11.4296104 55.09687,11.4376918 L61.8354756,11.0325353 L61.8354756,10.7354205 C61.8354756,9.19582566 60.3172917,8.33149171 57.8402549,8.33149171 C55.3632181,8.33149171 53.9515734,9.14180479 53.6585906,10.6003683 L48.1984556,10.6003683 C48.8110561,7.33210559 52.4600244,5.33333333 57.8402549,5.33333333 C63.7798164,5.33333333 66.9227233,7.4941682 66.9227233,11.6267649 L66.9227233,15.2731737 C66.8996117,16.6817986 66.9797367,18.0902181 67.1624365,19.4868017 L62.1284585,19.4868017 C62.0062936,18.6551746 61.9439811,17.815633 61.9420148,16.9748312 C60.9298922,18.8655617 58.239777,20 54.5641739,20 C50.32924,20 47.8788379,18.514426 47.8788379,15.7323511 Z M61.8887452,13.7875998 L61.8887452,13.3014119 L56.6683235,13.679558 C54.1113822,13.8686311 53.1525293,14.3278085 53.1525293,15.4082259 C53.1525293,16.4886433 54.3510955,17.1098834 56.4818799,17.1098834 C59.8112304,17.1639042 61.8887452,15.8133824 61.8887452,13.7875998 Z" id="Shape"></path>
+                            <path d="M25.9340102,6.59847141 L30.8611062,6.59847141 L30.8611062,9.50201993 C32.0928802,7.23521451 34.5302202,6.01266776 37.8586308,6.01266776 C39.7205543,5.90668108 41.5577373,6.46859392 43.0215984,7.59179064 C44.568007,9.10476145 45.3617988,11.1959928 45.1968589,13.3224785 L45.1968589,19.3333333 L40.191139,19.3333333 L40.191139,14.0356308 C40.191139,10.9792639 38.8021173,9.47655021 35.8144101,9.47655021 C32.826703,9.47655021 30.93973,11.157552 30.93973,13.9337519 L30.93973,19.3333333 L25.9340102,19.3333333 L25.9340102,6.59847141 Z" id="Path"></path>
+                            <path d="M0,15.3805774 L3.88345178,12.7559055 C5.42619289,14.9868766 8.32548223,16.167979 12.208934,16.167979 C15.666802,16.167979 17.2361421,15.4855643 17.2361421,14.015748 C17.2361421,12.8871391 16.4647716,12.4146982 14.2038579,12.152231 L8.29888325,11.5223097 C3.72385787,10.9973753 1.48954315,9.29133858 1.48954315,5.90551181 C1.48954315,2.17847769 5.16020305,0 11.6503553,0 C16.3849746,0 20.1620305,1.31233596 22.5293401,3.75328084 L19.0714721,6.56167979 C17.8479188,4.72440945 14.9220305,3.67454068 11.4109645,3.67454068 C8.43187817,3.67454068 6.86253807,4.33070866 6.86253807,5.64304462 C6.86253807,6.95538058 7.66050761,7.24409449 10.0278173,7.50656168 L15.3476142,8.05774278 C20.5610152,8.6351706 22.6091371,10.1574803 22.6091371,13.5695538 C22.6091371,17.7427822 18.7256853,20 11.8897462,20 C6.33055838,20 1.94172589,18.3727034 0,15.3805774 Z" id="Path"></path>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+            </a>
+        </main>
+    </footer>
+
+    <script>
+        function alignLeft() {document.getElementById("type").style.textAlign = "left";}
+        function alignCenter() {document.getElementById("type").style.textAlign = "center";}
+        function alignRight() {document.getElementById("type").style.textAlign = "right";}
+    </script>
+</body>
+</html>
