@@ -57,8 +57,12 @@
         .space.md {height:var(--spc-md);}
         .space.sm {height:var(--spc-sm);}
         .space.xs {height:var(--spc-xs);}
-        main {
-            padding: 0 1rem 1rem;
+        header {
+            background: var(--clr-secondary);
+            padding-bottom: var(--spc-md);
+        }
+        header section, main {
+            padding: 0 1rem;
             margin: 0 auto;
             max-width: 1000px;
         }
@@ -66,8 +70,8 @@
             border-bottom: 2px solid var(--clr-tertiary);
             color: gray;
             cursor: default;
-            padding-bottom: 1rem;
-            margin: var(--spc-lg) 0 var(--spc-sm);
+            margin-bottom: var(--spc-sm);
+            padding: var(--spc-lg) 0 1rem;
         }
         h6.headline+h1 {padding-top:0;}
         p>code {
@@ -107,10 +111,8 @@
 </head>
 <body>
     <header>
-    </header>
-    <main>
-        <h6 class="headline">No_Class Demo</h6>
         <section>
+            <h6 class="headline">No_Class Demo</h6>
             <p><b>No_Class</b> is a <u>modern</u> stylesheet driven <em>exclusively</em> by <mark>native</mark> markup. Does you project have No_Class ? Get started by visiting <a href="https://github.com/madebysnacks/No_Class">the Github page</a> and reviewing this demo page.</p>
             <br>
             <p>
@@ -118,6 +120,8 @@
                 <label for="theme-toggle"> Dark mode</label>
             </p>
         </section>
+    </header>
+    <main>
         <h6 class="headline">Standalone Type Styles</h6>
         <aside>
             <span>Align: </span>
@@ -231,7 +235,6 @@
             </a>
         </main>
     </footer>
-
     <script>
         function alignLeft() {document.getElementById("type").style.textAlign = "left";}
         function alignCenter() {document.getElementById("type").style.textAlign = "center";}
