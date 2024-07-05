@@ -73,6 +73,7 @@
             margin-bottom: var(--spc-sm);
             padding: var(--spc-lg) 0 1rem;
         }
+        header h6.headline {color: var(--clr-bg);}
         h6.headline+h1 {padding-top:0;}
         p>code {
             min-width: 50px;
@@ -105,6 +106,9 @@
             }
         aside {
             margin: 0 0 var(--spc-xs);
+        }
+        table tbody tr:hover {
+            background: var(--clr-fill);
         }
     </style>
     <title>No Class Demo</title>
@@ -146,14 +150,15 @@
         </section>
         <h6 class="headline">Common, Inline Type Styles</h6>
         <section>
-            <p><code>a</code> Lorem ipsum dolor <a>sit amet consectetur adipisicing</a> elit.</p>
-            <p><code>em</code> Aut harum molestias <em>labore amet possimus exercitationem aperiam earum</em> doloribus nobis.</p>
+            <p><code>a</code> It is a super common thing to <a>reference a link</a> when writing.</p>
+            <p><code>em</code> <em>Cranking Metallica.</em> Is that some sort of drug reference ? It's not funny.</p>
             <p><code>dfn</code> <dfn>Adipisicing harum</dfn> molestias labore amet possimus exercitationem aperiam.</p>
-            <p><code>mark</code> Lorem ipsum dolor <mark>sit amet consectetur adipisicing</mark> elit.</p>
-            <p><code>s</code> Adipisicing harum <s>molestias labore amet possimus</s> exercitationem aperiam.</p>
+            <p><code>ins</code> Sometimes you need to <s>cut out</s> <ins>correct</ins> little things when you write.</p>
+            <p><code>mark</code> Oy with <mark>the poodles</mark> already!</p>
+            <p><code>s</code> If I'm being honest <s>I hate the bitch, but</s> I love when she brings in donuts to the office.</p>
             <p><code>sub</code> Aut harum molestias labore amet possimus exercitationem <sub>[aperiam earum]</sub> doloribus nobis.</p>
             <p><code>sup</code> Lorem ipsum dolor <sup>[sit amet consectetur adipisicing]</sup> elit.</p>
-            <p><code>u</code> Aut harum molestias <u>labore amet possimus exercitationem aperiam earum</u> doloribus nobis.</p>
+            <p><code>u</code> One day it occurred to me <u>cows never wrinkle</u>.</p>
         </section>
         <h6 class="headline">Spacing</h6>
         <section>
@@ -213,6 +218,48 @@
                 <input type="submit" value="Submit">
                 <input type="reset" value="Reset">
             </form>
+        </section>
+        <h6 class="headline">Table</h6>
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ep. No.</th>
+                        <th>Ep. Title</th>
+                        <th>Air Date</th>
+                        <th>Director</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>The Demon of Death</td>
+                        <td>June 12, 2022</td>
+                        <td>Robert King</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>The Demon of Memes</td>
+                        <td>June 19, 2022</td>
+                        <td>John Dahl</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>The Demon of Sex</td>
+                        <td>June 26, 2022</td>
+                        <td>Nelson McCormick</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>The Demon of the Road</td>
+                        <td>July 3, 2022</td>
+                        <td>Peter Sollett</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr><td colspan="4">See full list of episodes in <a target="_blank" href="https://en.wikipedia.org/wiki/Evil_(TV_series)#Season_3_(2022)">Season 3</a>  of <em>Evil</em>.</td></tr>
+                </tfoot>
+            </table>
         </section>
     </main>
     <footer>

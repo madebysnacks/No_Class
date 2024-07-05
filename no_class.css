@@ -125,6 +125,7 @@ main {
 }
 section {
     margin: 0;
+    overflow-x: auto;
 }
 audio {
     margin: 0;
@@ -249,6 +250,9 @@ footer {
 }
 form {
     margin: 0;
+    padding: 1rem;
+    border: 1px solid var(--clr-tertiary);
+    border-radius: var(--border-radius);
     text-align: left;
     display: flex;
     flex-flow: row wrap;
@@ -257,7 +261,7 @@ form {
 }
     form div {
         margin: 0 0 var(--spc-xs);
-        width: 50%;
+        width: 100%;
     }
     form div > label {
         display: flex;
@@ -272,7 +276,7 @@ form {
         border: 1px solid var(--clr-tertiary);
         border-radius: var(--border-radius);
         padding: 1px 2px;
-        min-width: 50%;
+        min-width: 100%;
     }
     form textarea {min-height: var(--spc-md);}
     form input[type=radio],
@@ -312,6 +316,13 @@ input, select, textarea {
 }
 input[type='range']:focus {
     outline: none;
+}
+ins {
+    color: green;
+    font-size: 1.2rem;
+    font-style: italic;
+    font-weight: 600;
+    text-decoration: none;
 }
 label {
     margin: 0;
@@ -374,19 +385,34 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
     white-space: nowrap;
-    width: 100%
+    width: 100%;
 }
     table caption {
         text-align: left;
     }
     table td, table th {
-        padding: 0.25rem;
+        padding: 0.25rem 1rem 0.25rem 0.25rem;
         text-align: left;
         vertical-align: top;
         word-wrap: break-word;
     }
     table thead, table tfoot {
-        border-bottom: 1px solid var(--clr-secondary);
+        border-bottom: 2px solid var(--clr-tertiary);
+    }
+    table tfoot {
+        font-size: 0.8rem;
+    }
+    table tfoot td {
+        padding: var(--spc-xs) 0;
+    }
+    table tr {
+        border-bottom: 1px solid var(--clr-tertiary);
+    }
+    table tr:nth-of-type(2n) {
+        background: var(--clr-secondary);
+    }
+    table tr th {
+        border-bottom: 2px solid var(--clr-tertiary);
     }
 textarea {
     resize: vertical;
@@ -397,19 +423,8 @@ time {
     font-size: 1.2rem;
 }
 
-/* Single Template */
-
-#myTemplate {
-    background-color: DodgerBlue;
-    border-radius: var(--border-radius);
-    color: var(--clr-primary);
-    margin: 1rem 0;
-    padding: 1rem;
-    text-align: center;
-}
-
 html:has(body #theme-toggle:checked) {
-    color-scheme:               dark;
+    color-scheme:              dark;
     --clr-primary:            #000;
     --clr-secondary:          #1D1D1F;
     --clr-tertiary:           #333333;
@@ -431,6 +446,15 @@ html:has(body #theme-toggle:checked) {
     h2 {font-size: 40px; line-height: 1.1;}
     h3 {font-size: 32px; line-height: 1.12;}
     h4 {font-size: 28px; line-height: 1.42;}
+    form div {
+        width: 50%;
+    }
+    form input[type=text],
+    form input[type=email],
+    form input[type=tel],
+    form textarea {
+        min-width: 75%;
+    }
 }
 @media screen and (min-width:1024px) {
     :root {
