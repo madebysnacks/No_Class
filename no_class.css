@@ -8,21 +8,22 @@ Snacks Studio | https://www.madebysnacks.com
     --font-secondary:       serif;
     --rem-base:             16px;
 
-    --clr-primary:        #FFFFFF;
-    --clr-secondary:      #F9F9FB;
-    --clr-tertiary:       #DDDDDD;
-    --clr-accent:         #163bdd;
-    --clr-bg:             #1D1D1D;
-    --clr-fill:           #fff396;
+    --color-primary:        #FFFFFF;
+    --color-secondary:      #F9F9FB;
+    --color-tertiary:       #DDDDDD;
+    --color-accent:         #163bdd;
+    --color-bg:             #1D1D1D;
+    --color-fill:           #fff396;
 
-    --spc-xl:             5rem;
-    --spc-lg:             3rem;
-    --spc-md:             2.5rem;
-    --spc-sm:             1.25rem;
-    --spc-xs:             0.875rem;
+    --space-xl:             5rem;
+    --space-lg:             3rem;
+    --space-md:             2.5rem;
+    --space-sm:             1.25rem;
+    --space-xs:             0.875rem;
     
-    --border-color:         var(--clr-secondary);
+    --border-color:         var(--color-tertiary);
     --border-radius:        0.25rem;
+    --pg-width:            1000px;
 
     --animation-duration:   0.1s;
 }
@@ -33,8 +34,8 @@ Snacks Studio | https://www.madebysnacks.com
     vertical-align: baseline;
 }
 -moz-::selection, -webkit-::selection, ::selection {
-    color: var(--clr-primary);
-    background: var(--clr-bg);
+    color: var(--color-primary);
+    background: var(--color-bg);
 }
 [hidden] {display:none;}
 html {
@@ -67,7 +68,7 @@ a, button, input[type="submit"], input[type="reset"], input[type="button"] {
     font-style: inherit;
     margin: 0;
     outline: 0;
-    -webkit-tap-highlight-color: var(--clr-accent);
+    -webkit-tap-highlight-color: var(--color-accent);
 }
 button[disabled], input[type="submit"][disabled], input[type="reset"][disabled], input[type="button"][disabled] {
     cursor: not-allowed;
@@ -78,7 +79,7 @@ a {
     text-decoration: underline;
 }
     a:hover {
-        color: var(--clr-accent);
+        color: var(--color-accent);
     }
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-primary);
@@ -106,9 +107,9 @@ abbr {
         left: 50%;
         display: block;
         padding: 0.5rem 0.7rem;
-        background: var(--clr-secondary);
+        background: var(--color-secondary);
         border-radius: var(--border-radius);
-        color: var(--clr-primary);
+        color: var(--color-primary);
         width: 10rem;
     }
 address {
@@ -126,6 +127,8 @@ main {
 section {
     margin: 0;
     overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
 }
 audio {
     margin: 0;
@@ -144,8 +147,8 @@ br {
 button,
 input[type=submit],
 input[type=reset] {
-    background: var(--clr-secondary);
-    border: 1px solid var(--clr-tertiary);
+    background: var(--color-secondary);
+    border: 1px solid var(--color-tertiary);
     border-radius: var(--border-radius);
     font-size: 1rem;
     padding: 0.1rem 0.4rem;
@@ -154,7 +157,7 @@ input[type=reset] {
     button:hover,
     input[type=submit]:hover,
     input[type=reset]:hover {
-        background: var(--clr-primary);
+        background: var(--color-primary);
     }
 canvas, figure, img, picture, video, svg {
     margin: 0;
@@ -171,19 +174,22 @@ code, samp {
     margin: 0;
 }
 code {
-    background: var(--clr-secondary);
-    border: 1px solid var(--clr-tertiary);
+    background: var(--color-secondary);
+    border: 1px solid var(--color-tertiary);
     border-radius: var(--border-radius);
     font-size: 0.9rem;
     padding: 0.1rem 0.4rem;
     position: relative;
     top: -0.1rem;
 }
+p code {
+    display: inline-block;
+}
 datalist {
     margin: 0;
 }
 del {
-    background: var(--clr-tertiary);
+    background: var(--color-tertiary);
     margin: 0;
 }
 details {
@@ -203,7 +209,7 @@ details {
         margin-bottom: 0;
     }
     summary::-webkit-details-marker {
-        color: var(--clr-secondary);
+        color: var(--color-secondary);
     }
 dfn {
     font-family: var(--font-secondary);
@@ -214,19 +220,74 @@ dfn {
     margin: 0;
 }
 dialog {  
-    background: var(--clr-tertiary);
-    border: 1px solid var(--clr-secondary);
-    border-radius: 1rem;
-    border: 2px solid;
-    box-shadow: 0 0 3rem rgba(0,0,0,0.2);
+    background: var(--color-secondary);
+    border: 1px solid var(--color-tertiary);
+    border-radius: var(--border-radius);
+    box-shadow: rgba(14, 63, 126, 0.06) 0px 0px 0px 1px, rgba(42, 51, 70, 0.03) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 2px 2px -1px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.03) 0px 5px 5px -2.5px, rgba(42, 51, 70, 0.03) 0px 10px 10px -5px, rgba(42, 51, 70, 0.03) 0px 24px 24px -8px;
     flex-flow: column nowrap;
-    font-family: var(--font-primary);
-    padding: 1rem;
+    padding: 1rem 1rem 3rem;
     position: fixed;
     top: 2rem;
-    width: 500px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 640px;
     z-index: 1;
+
 }
+dialog[open] {
+    opacity: 1;
+    transform: translateY(2rem);
+}
+dialog {
+    opacity: 0;
+    transform: translateY(3rem);
+    transition:
+        opacity 0.2s ease-out,
+        transform 0.2s ease-in-out,
+        overlay 0.2s ease-out allow-discrete,
+        display 0.2s ease-out allow-discrete;
+}
+  @starting-style {
+    dialog[open] {
+      opacity: 0;
+      transform: translateY(3rem);
+    }
+  }
+  dialog::backdrop {
+    background-color: rgb(0 0 0 / 0%);
+    transition:
+      display 0.7s allow-discrete,
+      overlay 0.7s allow-discrete,
+      background-color 0.7s;
+    /* Equivalent to
+    transition: all 0.7s allow-discrete; */
+  }
+  
+  dialog[open]::backdrop {
+    background-color: rgb(0 0 0 / 25%);
+  }
+  
+  @starting-style {
+    dialog[open]::backdrop {
+      background-color: rgb(0 0 0 / 0%);
+    }
+  }
+    dialog button#exit {
+        margin: 0 0 0 auto;
+        display: flex;
+        position: relative;
+    }
+    dialog button#exit::before {
+        content: '×';
+        font-size: 1.4rem;
+        line-height: 1.2rem;
+        position: relative;
+        padding: 0 0.5rem 0 0;
+        top: 0;
+    }
+    dialog h4 {
+        margin: 0 0 var(--space-xs);
+    }
 dd {
 	margin: 0;
     padding: 0;
@@ -237,21 +298,29 @@ dd {
 dt {
 	font-weight: 600;
 }
-fieldset {border-color:var(--clr-secondary);}
     fieldset legend {font-weight:bold; padding:0 1rem 0 0;}
-    fieldset:hover {background:rgba(255, 192, 204, 0.1);}
         fieldset:hover legend {padding:0 0 0 1rem;}
     fieldset ul {margin: 0; padding:0 0 0 1rem;}
 figcaption {
     margin: 0;
 }
 footer {
-    margin: 0;
+    background: var(--color-secondary);
+    border-top: 1px solid var(--color-tertiary);
+    padding: var(--space-sm) 0;
+    margin: var(--space-xl) 0 0;
 }
+    footer main {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-end;
+        align-items: flex-end;
+        padding: 0 1rem;
+    }
 form {
     margin: 0;
     padding: 1rem;
-    border: 1px solid var(--clr-tertiary);
+    border: 1px solid var(--color-tertiary);
     border-radius: var(--border-radius);
     text-align: left;
     display: flex;
@@ -259,11 +328,13 @@ form {
     justify-content: flex-start;
     align-items: flex-start;
 }
-    form div {
-        margin: 0 0 var(--spc-xs);
+    form fieldset {
+        margin: 0 0 var(--space-xs);
         width: 100%;
+        outline: none;
+        border: none;
     }
-    form div > label {
+    form fieldset > label {
         display: flex;
         font-weight: 600;
         margin-bottom: 0.25rem;
@@ -272,13 +343,13 @@ form {
     form input[type=email],
     form input[type=tel],
     form textarea {
-        background: var(--clr-secondary);
-        border: 1px solid var(--clr-tertiary);
+        background: var(--color-secondary);
+        border: 1px solid var(--color-tertiary);
         border-radius: var(--border-radius);
         padding: 1px 2px;
         min-width: 100%;
     }
-    form textarea {min-height: var(--spc-md);}
+    form textarea {min-height: var(--space-md);}
     form input[type=radio],
     form input[type=radio] + label,
     form input[type=checkbox],
@@ -294,18 +365,20 @@ form {
     form br + label,
     form input[type=text] + label,
     form input[type=email] + label {
-        margin-top: var(--spc-xs);
+        margin-top: var(--space-xs);
     }
 kbd {
-    background: var(--clr-tertiary);
+    background: var(--color-tertiary);
     padding: 2px;
 }
 header {
+    background: var(--color-secondary);
     margin: 0;
+    padding-bottom: var(--space-md);
 }
 hr {
     height: 1px;
-    background: var(--clr-secondary);
+    background: var(--color-secondary);
 }
 input, button, textarea, select {
     font: inherit;
@@ -331,13 +404,28 @@ legend {
     font-size: 0.6rem;
 }
 mark {
-    background: var(--clr-fill);
+    background: var(--color-fill);
 }
 meter {
     margin: 0;
 }
 nav {
     margin: 0;
+}
+pre {
+    display: flex;
+    margin: 1rem 0 0;
+}
+pre > code {
+    padding: 0.5rem;
+    display: inline-block;
+    overflow-x: auto;
+    top: 0;
+    -webkit-user-select: all;
+    user-select: all;
+}
+pre > code + button {
+    margin-left: 1rem;
 }
 ol, ul {
     list-style: default;
@@ -346,7 +434,7 @@ q {
     font-size: 2rem;
     line-height: 1.8rem;
     padding: 1rem;
-    border-left: 5px dashed var(--clr-secondary);
+    border-left: 5px dashed var(--color-secondary);
     font-style: italic;
     margin: 1rem 0;
     background: rgba(255, 182, 193, .4);
@@ -397,22 +485,22 @@ table {
         word-wrap: break-word;
     }
     table thead, table tfoot {
-        border-bottom: 2px solid var(--clr-tertiary);
+        border-bottom: 2px solid var(--color-tertiary);
     }
     table tfoot {
         font-size: 0.8rem;
     }
     table tfoot td {
-        padding: var(--spc-xs) 0;
+        padding: var(--space-xs) 0;
     }
     table tr {
-        border-bottom: 1px solid var(--clr-tertiary);
+        border-bottom: 1px solid var(--color-tertiary);
     }
     table tr:nth-of-type(2n) {
-        background: var(--clr-secondary);
+        background: var(--color-secondary);
     }
     table tr th {
-        border-bottom: 2px solid var(--clr-tertiary);
+        border-bottom: 2px solid var(--color-tertiary);
     }
 textarea {
     resize: vertical;
@@ -425,12 +513,12 @@ time {
 
 html:has(body #theme-toggle:checked) {
     color-scheme:              dark;
-    --clr-primary:            #000;
-    --clr-secondary:          #1D1D1F;
-    --clr-tertiary:           #333333;
-    --clr-accent:             magenta;
-    --clr-bg:                 white;
-    --clr-fill:               magenta;
+    --color-primary:            #000;
+    --color-secondary:          #1D1D1F;
+    --color-tertiary:           #333333;
+    --color-accent:             magenta;
+    --color-bg:                 white;
+    --color-fill:               magenta;
 }
 
 /* Media Queries */
@@ -438,15 +526,15 @@ html:has(body #theme-toggle:checked) {
 @media (prefers-reduced-motion: reduce) {html {scroll-behavior: auto;}}
 @media screen and (min-width:768px) {
     :root {
-        --spc-lg:         3.5rem;
-        --spc-md:         3rem;
-        --spc-sm:         1.5rem;
+        --space-lg:         3.5rem;
+        --space-md:         3rem;
+        --space-sm:         1.5rem;
     }
     h1 {font-size: 48px; line-height: 1.1;}
     h2 {font-size: 40px; line-height: 1.1;}
     h3 {font-size: 32px; line-height: 1.12;}
     h4 {font-size: 28px; line-height: 1.42;}
-    form div {
+    form fieldset {
         width: 50%;
     }
     form input[type=text],
@@ -458,9 +546,9 @@ html:has(body #theme-toggle:checked) {
 }
 @media screen and (min-width:1024px) {
     :root {
-        --spc-lg:         4rem;
-        --spc-md:         3.5rem;
-        --spc-sm:         2rem;
+        --space-lg:         4rem;
+        --space-md:         3.5rem;
+        --space-sm:         2rem;
     }
     h1 {font-size: 64px; line-height: 1.05;}
     h2 {font-size: 48px; line-height: 1.05;}

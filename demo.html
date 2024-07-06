@@ -39,8 +39,8 @@
             color-scheme: light;
         }
         .space {
-            background: var(--clr-secondary);
-            border: 1px solid var(--clr-tertiary);
+            background: var(--color-secondary);
+            border: 1px solid var(--color-tertiary);
             border-radius: var(--border-radius);
             cursor: default;
             display: flex;
@@ -50,65 +50,49 @@
             flex-flow: row nowrap;
             font-size: 0.8rem;
         }
-            .space:not(:first-of-type) {margin: var(--spc-xs) 0 0;}
-            .space:hover {background: var(--clr-primary);}
-        .space.xl {height:var(--spc-xl);}
-        .space.lg {height:var(--spc-lg);}
-        .space.md {height:var(--spc-md);}
-        .space.sm {height:var(--spc-sm);}
-        .space.xs {height:var(--spc-xs);}
-        header {
-            background: var(--clr-secondary);
-            padding-bottom: var(--spc-md);
-        }
+            .space:not(:first-of-type) {margin: var(--space-xs) 0 0;}
+            .space:hover {background: var(--color-primary);}
+        .space.xl {height:var(--space-xl);}
+        .space.lg {height:var(--space-lg);}
+        .space.md {height:var(--space-md);}
+        .space.sm {height:var(--space-sm);}
+        .space.xs {height:var(--space-xs);}
+        
         header section, main {
             padding: 0 1rem;
             margin: 0 auto;
-            max-width: 1000px;
+            max-width: var(--pg-width);
         }
         h6.headline {
-            border-bottom: 2px solid var(--clr-tertiary);
+            border-bottom: 2px solid var(--color-tertiary);
             color: gray;
             cursor: default;
-            margin-bottom: var(--spc-sm);
-            padding: var(--spc-lg) 0 1rem;
+            margin-bottom: var(--space-sm);
+            padding: var(--space-lg) 0 1rem;
         }
-        header h6.headline {color: var(--clr-bg);}
+        header h6.headline {color: var(--color-bg);}
         h6.headline+h1 {padding-top:0;}
         p>code {
             min-width: 50px;
             text-align: center;
             margin-right: 0.25rem;
         }
-        footer {
-            background: var(--clr-secondary);
-            border-top: 1px solid var(--clr-tertiary);
-            padding: var(--spc-sm) 0;
-            margin: var(--spc-xl) 0 0;
+        footer svg:hover g {
+            fill: var(--color-accent);
         }
-            footer main {
-                display: flex;
-                flex-flow: row nowrap;
-                justify-content: flex-end;
-                align-items: flex-end;
-                padding: 0 1rem;
-            }
-            footer svg:hover g {
-                fill: var(--clr-accent);
-            }
         button {
             border-radius: 3rem;
             padding: 0.2rem 1rem;
             margin: 0 0 0 0.2rem;
         }
             button:hover {
-                background: var(--clr-primary);
+                background: var(--color-primary);
             }
         aside {
-            margin: 0 0 var(--spc-xs);
+            margin: 0 0 var(--space-xs);
         }
         table tbody tr:hover {
-            background: var(--clr-fill);
+            background: var(--color-fill);
         }
     </style>
     <title>No Class Demo</title>
@@ -123,6 +107,11 @@
                 <input type="checkbox" id="theme-toggle" />
                 <label for="theme-toggle"> Dark mode</label>
             </p>
+            <br>
+            <p>To get started, download from Github or paste the following in the <code>&lt;head&gt;</code> tag of your HTML or PHP file:</p>
+            <pre>
+                <code>&lt;link rel="stylesheet" href="https://raw.githubusercontent.com/madebysnacks/No_Class/main/no_class.css"&gt;</code>
+            </pre>
         </section>
     </header>
     <main>
@@ -163,25 +152,25 @@
         <h6 class="headline">Spacing</h6>
         <section>
             <div class="space xl">
-                <samp>spc-xl (LG, MD, SM: 80px)</samp>
+                <samp>space-xl (LG, MD, SM: 80px)</samp>
             </div>
             <div class="space lg">
-                <samp>spc-lg (LG: 64px, MD: 56px, SM: 48px)</samp>
+                <samp>space-lg (LG: 64px, MD: 56px, SM: 48px)</samp>
             </div>
             <div class="space md">
-                <samp>spc-md (LG: 56px, MD: 48px, SM: 40px)</samp>
+                <samp>space-md (LG: 56px, MD: 48px, SM: 40px)</samp>
             </div>
             <div class="space sm">
-                <samp>spc-sm (LG: 32px, MD: 24px, SM: 20px)</samp>
+                <samp>space-sm (LG: 32px, MD: 24px, SM: 20px)</samp>
             </div>
             <div class="space xs">
-                <samp>spc-xs (LG, MD, SM: 14px)</samp>
+                <samp>space-xs (LG, MD, SM: 14px)</samp>
             </div>
         </section>
         <h6 class="headline">Form</h6>
         <section>
             <form>
-                <div>
+                <fieldset>
                     <label for="email">Email (required)</label>
                     <input type="email" required name="email" id="email" placeholder="hello@madebysnacks.com">
                     <label for="id">Read-only</label>
@@ -190,8 +179,8 @@
                     <input type="text" disabled name="disabled" id="disabled" placeholder="Can't touch me">
                     <label for="about">Textarea</label>
                     <textarea name="about" id="about" placeholder="And how does that make you feel..."></textarea>
-                </div>
-                <div>
+                </fieldset>
+                <fieldset>
                     <label>Select one option:</label>
                     <aside>
                         <input type="radio" id="radio1" name="fullName" value="radio1">
@@ -214,7 +203,7 @@
                         <input type="checkbox" name="check" id="check3">
                         <label for="check3">Checkbox 3</label>
                     </aside>
-                </div>
+                </fieldset>
                 <input type="submit" value="Submit">
                 <input type="reset" value="Reset">
             </form>
@@ -261,13 +250,23 @@
                 </tfoot>
             </table>
         </section>
+        <h6 class="headline">Components</h6>
+        <section>
+            <dialog id="window">  
+                <button id="exit" autofocus>Close</button>
+                <h4>Sample Dialog!</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, inventore!</p>
+                <p>One nice thing is that you can use the <kbd>esc</kbd> key to close this.</p>
+            </dialog>
+            <p>Dialog: <button id="show">Open Now</button> </p>
+        </section>
     </main>
     <footer>
         <main>
             <a href="https://www.madebysnacks.com">
             <svg width="131px" height="20px" viewBox="0 0 131 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                    <g transform="translate(-25, -25)" fill="var(--clr-bg)" fill-rule="nonzero">
+                    <g transform="translate(-25, -25)" fill="var(--color-bg)" fill-rule="nonzero">
                         <g id="logo-snacks" transform="translate(25, 25)">
                             <path d="M113.045685,16.8355129 L115.771596,14.4487386 C117.927138,16.1238862 120.590379,16.9688959 123.294061,16.8355129 C125.417125,16.8355129 126.386921,16.4332475 126.386921,15.6018992 C126.386921,14.7705509 125.888918,14.5560094 124.578384,14.421921 L119.02172,13.992838 C115.614332,13.6710257 113.963059,12.3301413 113.963059,9.88973174 C113.963059,7.02023915 116.846234,5.35754251 121.826263,5.35754251 C125.027228,5.16619244 128.194335,6.11369334 130.790315,8.03931129 L128.405143,10.4260855 C126.422627,8.92071659 123.972087,8.20570946 121.511734,8.41475891 C119.41488,8.41475891 118.576138,8.73657117 118.576138,9.56791948 C118.576138,10.3992678 119.074141,10.5333562 120.437097,10.6674447 L125.679232,11.1233454 C129.427359,11.498793 131,12.7324066 131,15.2532693 C131,18.283668 128.011983,20 122.612583,20 C118.26161,20 114.749379,18.8736571 113.045685,16.8355129 Z" id="Path"></path>
                             <polygon id="Path" points="102.045182 13.134058 98.1202984 15.8922101 98.1202984 19.2807971 93.0964467 19.2807971 93.0964467 0 98.0941325 0 98.0941325 11.6893116 105.577578 6.19927536 112.119052 6.19927536 105.839237 10.8487319 112.380711 19.3333333 106.702712 19.3333333"></polygon>
@@ -283,9 +282,27 @@
         </main>
     </footer>
     <script>
+        // text alignment effect
         function alignLeft() {document.getElementById("type").style.textAlign = "left";}
         function alignCenter() {document.getElementById("type").style.textAlign = "center";}
         function alignRight() {document.getElementById("type").style.textAlign = "right";}
+
+        // dialog modality
+        function onClick(event) {
+            if (event.target === dialog) {
+                dialog.close();
+            }
+        }
+        const dialog = document.querySelector("dialog");
+        dialog.addEventListener("click", onClick);
+        const showButton = document.querySelector("dialog + p>button");
+        const closeButton = document.querySelector("dialog button");
+        showButton.addEventListener("click", () => {
+            dialog.showModal();
+        });
+        closeButton.addEventListener("click", () => {
+            dialog.close();
+        });
     </script>
 </body>
 </html>
