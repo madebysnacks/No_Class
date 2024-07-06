@@ -35,6 +35,9 @@
     <link rel="stylesheet" href="no_class.css">
     <style>
         /* demo-specific classes and configurations */
+        * {
+            transition: width,font-size,background-color 0.12s ease-out;
+        }
         html {
             color-scheme: light;
         }
@@ -63,17 +66,17 @@
             margin: 0 auto;
             max-width: var(--pg-width);
         }
-        h6.headline {
+        h6.demo_headline {
             border-bottom: 2px solid var(--color-tertiary);
             color: gray;
             cursor: default;
             margin-bottom: var(--space-sm);
             padding: var(--space-lg) 0 1rem;
         }
-        header h6.headline {color: var(--color-bg);}
-        h6.headline+h1 {padding-top:0;}
+        header h6.demo_headline {color: var(--color-bg);}
+        h6.demo_headline+h1 {padding-top:0;}
         p>code {
-            min-width: 50px;
+            min-width: 3.2rem;
             text-align: center;
             margin-right: 0.25rem;
         }
@@ -88,11 +91,14 @@
             button:hover {
                 background: var(--color-primary);
             }
-        aside {
+        main>aside {
             margin: 0 0 var(--space-xs);
         }
         table tbody tr:hover {
             background: var(--color-fill);
+        }
+        article>aside:not(:last-of-type) {
+            margin: 0 0 var(--space-sm);
         }
     </style>
     <title>No Class Demo</title>
@@ -100,7 +106,7 @@
 <body>
     <header>
         <section>
-            <h6 class="headline">No_Class Demo</h6>
+            <h6 class="demo_headline">No_Class Demo</h6>
             <p><b>No_Class</b> is a <u>modern</u> stylesheet driven <em>exclusively</em> by <mark>native</mark> markup. Does you project have No_Class ? Get started by visiting <a href="https://github.com/madebysnacks/No_Class">the Github page</a> and reviewing this demo page.</p>
             <br>
             <p>
@@ -108,14 +114,14 @@
                 <label for="theme-toggle"> Dark mode</label>
             </p>
             <br>
-            <p>To get started, download from Github or paste the following in the <code>&lt;head&gt;</code> tag of your HTML or PHP file:</p>
+            <p>To get started, download the latest from Github or paste the following in the <code>&lt;head&gt;</code> tag of your HTML or PHP file:</p>
             <pre>
                 <code>&lt;link rel="stylesheet" href="https://raw.githubusercontent.com/madebysnacks/No_Class/main/no_class.css"&gt;</code>
             </pre>
         </section>
     </header>
     <main>
-        <h6 class="headline">Standalone Type Styles</h6>
+        <h6 class="demo_headline">Standalone Type Styles</h6>
         <aside>
             <span>Align: </span>
             <button type="button" onclick="alignLeft()">Left</button>
@@ -137,19 +143,36 @@
             <p>P. Body</p>
             <small>Small. For, like notes</small>
         </section>
-        <h6 class="headline">Common, Inline Type Styles</h6>
+        <h6 class="demo_headline">Example Type Lockups</h6>
+        <section>
+            <article>
+                <aside>
+                    <small>Harum molestias labore</small>
+                    <h2>Sit Amet Consectetur</h2>
+                    <p><b>Adipisicing labore amet exercitationem</b></p>
+                </aside>
+                <aside>
+                    <h6>Harum molestias labore</h6>
+                    <h1>Sit Amet Consectetur</h1>
+                    <p>Adipisicing labore amet exercitationem</p>
+                </aside>
+            </article>
+        </section>
+        <h6 class="demo_headline">Common, Inline Type Styles</h6>
         <section>
             <p><code>a</code> It is a super common thing to <a>reference a link</a> when writing.</p>
+            <p><code>abbr</code> It is human nature, not <abbr data-title="We do not care if our children die as long as they die in a ditch and not in the road, where they will make it bumpy for our vehicles.">alien nature</abbr>.</p>
             <p><code>em</code> <em>Cranking Metallica.</em> Is that some sort of drug reference ? It's not funny.</p>
-            <p><code>dfn</code> <dfn>Adipisicing harum</dfn> molestias labore amet possimus exercitationem aperiam.</p>
-            <p><code>ins</code> Sometimes you need to <s>cut out</s> <ins>correct</ins> little things when you write.</p>
+            <p><code>dfn</code> <dfn>Adipisicing harum</dfn>: Babbette ate oatmeal.</p>
+            <p><code>ins</code> Sometimes you need to <del>cut out</del> <ins>correct</ins> little things when you write.</p>
+            <p><code>kbd</code> Hold down the <kbd>cmd</kbd> and <kbd>F</kbd> keys to find some text.</p>
             <p><code>mark</code> Oy with <mark>the poodles</mark> already!</p>
-            <p><code>s</code> If I'm being honest <s>I hate the bitch, but</s> I love when she brings in donuts to the office.</p>
-            <p><code>sub</code> Aut harum molestias labore amet possimus exercitationem <sub>[aperiam earum]</sub> doloribus nobis.</p>
+            <p><code>s</code> Definitive, not <s>derivative</s>. Faux poes foes.</p>
+            <p><code>sub</code> Aut harum molestias labore amet exercitationem <sub>[aperiam earum]</sub> doloribus.</p>
             <p><code>sup</code> Lorem ipsum dolor <sup>[sit amet consectetur adipisicing]</sup> elit.</p>
             <p><code>u</code> One day it occurred to me <u>cows never wrinkle</u>.</p>
         </section>
-        <h6 class="headline">Spacing</h6>
+        <h6 class="demo_headline">Spacing</h6>
         <section>
             <div class="space xl">
                 <samp>space-xl (LG, MD, SM: 80px)</samp>
@@ -167,21 +190,37 @@
                 <samp>space-xs (LG, MD, SM: 14px)</samp>
             </div>
         </section>
-        <h6 class="headline">Form</h6>
+        <h6 class="demo_headline">Form</h6>
         <section>
             <form>
                 <fieldset>
+                    <label for="text">Text</label>
+                    <input type="text" name="text" placeholder="Your Name">
                     <label for="email">Email (required)</label>
                     <input type="email" required name="email" id="email" placeholder="hello@madebysnacks.com">
                     <label for="id">Read-only</label>
                     <input type="text" readonly name="id" id="id" value="8008135">
                     <label for="disabled">Disabled</label>
                     <input type="text" disabled name="disabled" id="disabled" placeholder="Can't touch me">
+                    <label>Dropdown:</label>
+                    <select name="cast" id="bluths">
+                        <option value="Michael">Michael</option>
+                        <option value="Buster">Buster</option>
+                        <option value="Lindsay">Lindsay</option>
+                        <option value="Gob">Gob</option>
+                    </select>
+                    <label>Datalist:</label>
+                    <input list="teams" name="datalist">
+                    <datalist id="teams">
+                        <option value="Chelsea"></option>
+                        <option value="Tottenham"></option>
+                        <option value="Liverpool"></option>
+                    </datalist>
                     <label for="about">Textarea</label>
                     <textarea name="about" id="about" placeholder="And how does that make you feel..."></textarea>
                 </fieldset>
                 <fieldset>
-                    <label>Select one option:</label>
+                    <label>Only select one:</label>
                     <aside>
                         <input type="radio" id="radio1" name="fullName" value="radio1">
                         <label for="radio1">Radio 1</label>
@@ -192,7 +231,7 @@
                         <input type="radio" id="radio3" name="fullName" value="radio3">
                         <label for="radio3">Radio 3</label>
                     </aside>
-                    <label>Select one or more option:</label>
+                    <label>Select one or more:</label>
                     <aside>
                         <input type="checkbox" name="check" id="check">
                         <label for="check">Checkbox 1</label>
@@ -203,12 +242,16 @@
                         <input type="checkbox" name="check" id="check3">
                         <label for="check3">Checkbox 3</label>
                     </aside>
+                    <label>Next thing:</label>
+                    <aside>
+                        <!-- next -->
+                    </aside>
                 </fieldset>
                 <input type="submit" value="Submit">
                 <input type="reset" value="Reset">
             </form>
         </section>
-        <h6 class="headline">Table</h6>
+        <h6 class="demo_headline">Table</h6>
         <section>
             <table>
                 <thead>
@@ -250,7 +293,7 @@
                 </tfoot>
             </table>
         </section>
-        <h6 class="headline">Components</h6>
+        <h6 class="demo_headline">Components</h6>
         <section>
             <dialog id="window">  
                 <button id="exit" autofocus>Close</button>
@@ -259,6 +302,12 @@
                 <p>One nice thing is that you can use the <kbd>esc</kbd> key to close this.</p>
             </dialog>
             <p>Dialog: <button id="show">Open Now</button> </p>
+            <br>
+            <p>Blockquote:</p>
+            <blockquote cite="https://en.wikipedia.org/wiki/Resident_Alien_(TV_series)">
+                <span>Gravel is big dirt.</span>
+                <footer>Dr. Harry Vanderspeigle - <cite>Patience, Colorado</cite></footer>
+            </blockquote>
         </section>
     </main>
     <footer>
@@ -288,12 +337,12 @@
         function alignRight() {document.getElementById("type").style.textAlign = "right";}
 
         // dialog modality
+        const dialog = document.querySelector("dialog");
         function onClick(event) {
             if (event.target === dialog) {
                 dialog.close();
             }
         }
-        const dialog = document.querySelector("dialog");
         dialog.addEventListener("click", onClick);
         const showButton = document.querySelector("dialog + p>button");
         const closeButton = document.querySelector("dialog button");
