@@ -142,7 +142,7 @@ section {
 audio {
     margin: 0;
 }
-b, q {
+b, strong, q {
     font-size: inherit;
     font-weight: 600;
 }
@@ -222,11 +222,21 @@ del {
     margin: 0;
 }
 details {
-    margin: 0;
+    margin: 1rem 0 0;
+    padding: 0.5rem;
+    background: var(--color-secondary);
+    border: 1px solid var(--color-secondary);
+    border-radius: var(--border-radius);
 }
+    details:hover {
+        border: 1px solid var(--color-tertiary);
+    }
     details summary {
         font-weight: bold;
         cursor: pointer;
+    }
+    details summary:hover {
+        color: var(--color-accent);
     }
     details[open] {
         padding-bottom: 0.75rem;
@@ -303,6 +313,10 @@ dialog {
         margin: 0 0 0 auto;
         display: flex;
         position: relative;
+        background: var(--color-primary);
+    }
+    dialog button#exit:hover {
+        background: var(--color-secondary);
     }
     dialog button#exit::before {
         content: '×';
@@ -470,13 +484,7 @@ ol, ul {
     list-style: default;
 }
 q {
-    font-size: 2rem;
-    line-height: 1.8rem;
-    padding: 1rem;
-    border-left: 5px dashed var(--color-secondary);
     font-style: italic;
-    margin: 1rem 0;
-    background: rgba(255, 182, 193, .4);
 }
 p {
     font-size: 1.125rem;
