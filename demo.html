@@ -100,6 +100,37 @@
         article>aside:not(:last-of-type) {
             margin: 0 0 var(--space-sm);
         }
+        ol, ul, menu {
+            margin: 1rem 0 0;
+        }
+            li>ol, li>ul {
+                margin: 0;
+            }
+        #lists article:not(:first-of-type) {
+            margin: 1rem 0 0;
+        }
+        address,
+        section > p+label {
+            margin: 1rem 0 0;
+            position: relative;
+            display: inline-flex;
+        }
+        address {
+            flex-flow: column nowrap;
+        }
+            @media screen and (min-width:768px) {
+                #lists {
+                    display: flex;
+                    flex-flow: row nowrap;
+                }
+                    #lists article,
+                    #lists article:not(:first-of-type) {
+                        margin: 0;
+                        display: flex;
+                        width: 33.3333%;
+                        flex-flow: column nowrap;
+                    }
+            }
     </style>
     <title>No Class Demo</title>
 </head>
@@ -115,7 +146,7 @@
         <p>To get started, download the latest from Github or paste the following in the <code>&lt;head&gt;</code> tag of your HTML or PHP file:</p>
         <pre>
             <code>&lt;link rel="stylesheet" href="https://raw.githubusercontent.com/madebysnacks/No_Class/main/no_class.css"&gt;</code>
-            </pre>
+        </pre>
         <br>
         <p>Using CSS Variables, No_Class supports easy theme customization and switching.
             <br><b>See</b>:
@@ -172,7 +203,17 @@
             <p><code>s</code> Definitive, not <s>derivative</s>. Faux poes foes.</p>
             <p><code>sub</code> Aut harum molestias labore amet exercitationem <sub>[aperiam earum]</sub> doloribus.</p>
             <p><code>sup</code> Lorem ipsum dolor <sup>[sit amet consectetur adipisicing]</sup> elit.</p>
+            <p><code>time</code> The demon woke me up at <time datetime="03:00">3:00 AM</time>.</p>
             <p><code>u</code> One day it occurred to me <u>cows never wrinkle</u>.</p>
+            <br>
+            <p>Address:</p>
+            <address>
+                <b>Camp Nou</b>
+                <p>
+                C. d'Aristides Maillol 12 <br>
+                08028 Barcelona<br>
+                Spain</p>
+            </address>
         </section>
         <h6 class="demo_headline">Spacing</h6>
         <section>
@@ -206,6 +247,7 @@
                     <input type="text" disabled name="disabled" id="disabled" placeholder="Can't touch me">
                     <label>Dropdown:</label>
                     <select name="cast" id="bluths">
+                        <option>Select</option>
                         <option value="Michael">Michael</option>
                         <option value="Buster">Buster</option>
                         <option value="Lindsay">Lindsay</option>
@@ -244,7 +286,8 @@
                         <input type="checkbox" name="check" id="check3">
                         <label for="check3">Checkbox 3</label>
                     </aside>
-                    <label>Next thing:</label>
+                    <label>Range:</label>
+                    <input type="range">
                     <aside>
                         <!-- next -->
                     </aside>
@@ -311,11 +354,76 @@
                 <footer>Dr. Harry Vanderspeigle - <cite>Patience, Colorado</cite></footer>
             </blockquote>
             <br>
-            <p>Accordion</p>
+            <p>Accordion:</p>
             <details>
                 <summary>Read more</summary>
                 <p>Most people say accordion, but it's called details and summary. Isn't that funny?</p>
             </details>
+            <details>
+                <summary>Read more</summary>
+                <p>Most people say accordion, but it's called details and summary. Isn't that funny?</p>
+            </details>
+            <br>
+            <p>Progress:</p>
+            <label for="downloading">Downloading update:</label>
+            <progress id="downloading" value="68" max="100"></progress><span>68%</span>
+        </section>
+        <h6 class="demo_headline">Lists</h6>
+        <section id="lists">
+            <article>
+                <p>Menu:</p>
+                <menu>
+                    <li>Dove</li>
+                    <li>Jay</li>
+                    <li>Robin</li>
+                    <li>Dove</li>
+                    <li>Jay</li>
+                    <li>Robin</li>
+                    <li>Dove</li>
+                    <li>Jay</li>
+                    <li>Robin</li>
+                </menu>
+            </article>
+            <article>
+                <p>Unordered list:</p>
+                <ul>
+                    <li>Dove</li>
+                    <li>Jay
+                        <ul>
+                            <li>Dove</li>
+                            <li>Jay
+                                <ul>
+                                    <li>Dove</li>
+                                    <li>Jay</li>
+                                    <li>Robin</li>
+                                </ul>
+                            </li>
+                            <li>Robin</li>
+                        </ul>
+                    </li>
+                    <li>Robin</li>
+                </ul>
+            </article>
+            <article>
+                <p>Ordered list:</p>
+                <ol>
+                    <li>Dove</li>
+                    <li>Jay
+                        <ol>
+                            <li>Dove
+                                <ol>
+                                    <li>Dove</li>
+                                    <li>Jay</li>
+                                    <li>Robin</li>
+                                </ol>
+                            </li>
+                            <li>Jay</li>
+                            <li>Robin</li>
+                        </ol>
+                    </li>
+                    <li>Robin</li>
+                </ol>
+            </article>
         </section>
     </main>
     <footer>

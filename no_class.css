@@ -40,6 +40,7 @@ Snacks Studio | https://www.madebysnacks.com
 [hidden] {display:none;}
 html {
     font-size: var(--rem-base);
+    font: -apple-system-body;
     scroll-behavior: smooth;
     scrollbar-width: thin;
     -ms-touch-action: manipulation;
@@ -114,6 +115,11 @@ abbr {
     }
 address {
     font-size: 1.1rem;
+    border: 3px dashed var(--color-tertiary);
+    border-radius: var(--border-radius);
+    padding: 0.5rem 1rem;
+    -webkit-user-select: all;
+    user-select: all;
 }
 article {
     margin: 0;
@@ -224,10 +230,14 @@ del {
 details {
     margin: 1rem 0 0;
     padding: 0.5rem;
+    position: relative;
     background: var(--color-secondary);
     border: 1px solid var(--color-secondary);
     border-radius: var(--border-radius);
 }
+    details:not(:first-of-type) {
+        margin: 0.25rem 0 0;
+    }
     details:hover {
         border: 1px solid var(--color-tertiary);
     }
@@ -235,9 +245,9 @@ details {
         font-weight: bold;
         cursor: pointer;
     }
-    details summary:hover {
-        color: var(--color-accent);
-    }
+        details summary:hover {
+            color: var(--color-accent);
+        }
     details[open] {
         padding-bottom: 0.75rem;
     }
@@ -415,6 +425,89 @@ form {
     form input[type=email] + label {
         margin-top: var(--space-xs);
     }
+    form input[type="range"] {
+        font-size: 1.5rem;
+        width: 12.5em;
+        border: none;
+    }
+
+    form input[type="range"] {
+        color: var(--color-accent);
+        --thumb-height: 1.125em;
+        --track-height: 0.125em;
+        --track-color: var(--color-bg);
+        --brightness-hover: 180%;
+        --brightness-down: 80%;
+        --clip-edges: 0.125em;
+    }
+    form input[type=range] {
+        position: relative;
+        background: #fff0;
+        overflow: hidden;
+    }
+
+    form input[type=range]:active {
+        cursor: grabbing;
+    }
+    input[type="range"],
+    input[type="range"]::-webkit-slider-runnable-track,
+    input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        transition: all ease 100ms;
+        height: var(--thumb-height);
+    }
+
+    input[type="range"]::-webkit-slider-runnable-track,
+    input[type="range"]::-webkit-slider-thumb {
+        position: relative;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+        --thumb-radius: calc((var(--thumb-height) * 0.5) - 1px);
+        --clip-top: calc((var(--thumb-height) - var(--track-height)) * 0.5 - 0.5px);
+        --clip-bottom: calc(var(--thumb-height) - var(--clip-top));
+        --clip-further: calc(100% + 1px);
+        --box-fill: calc(-100vmax - var(--thumb-width, var(--thumb-height))) 0 0
+            100vmax currentColor;
+
+        width: var(--thumb-width, var(--thumb-height));
+        background: linear-gradient(currentColor 0 0) scroll no-repeat left center /
+            50% calc(var(--track-height) + 1px);
+        background-color: currentColor;
+        box-shadow: var(--box-fill);
+        border-radius: var(--thumb-width, var(--thumb-height));
+
+        filter: brightness(100%);
+        clip-path: polygon(
+            100% -1px,
+            var(--clip-edges) -1px,
+            0 var(--clip-top),
+            -100vmax var(--clip-top),
+            -100vmax var(--clip-bottom),
+            0 var(--clip-bottom),
+            var(--clip-edges) 100%,
+            var(--clip-further) var(--clip-further)
+        );
+    }
+
+    input[type="range"]:hover::-webkit-slider-thumb {
+        filter: brightness(var(--brightness-hover));
+        cursor: grab;
+    }
+
+    input[type="range"]:active::-webkit-slider-thumb {
+        filter: brightness(var(--brightness-down));
+        cursor: grabbing;
+    }
+
+    input[type="range"]::-webkit-slider-runnable-track {
+        background: linear-gradient(var(--track-color) 0 0) scroll no-repeat center /
+            100% calc(var(--track-height) + 1px);
+    }
+
+    input[type="range"]:disabled::-webkit-slider-thumb {
+        cursor: not-allowed;
+    }
 kbd {
     background: var(--color-tertiary);
     padding: 0.1rem 0.4rem;
@@ -481,7 +574,20 @@ pre > code + button {
     margin-left: 1rem;
 }
 ol, ul {
-    list-style: default;
+    padding: 0 0 0 1rem;
+}
+    ol > li > ol {
+        list-style-type: lower-alpha;
+    }
+    ol > li > ol > li > ol {
+        list-style-type: lower-roman;
+    }
+menu {
+    margin: 0 0 0 0.2rem;
+    list-style: none;
+}
+menu li::before {
+    content:'— ';
 }
 q {
     font-style: italic;
@@ -494,8 +600,12 @@ progress {
     height: 1.5rem;
     margin: 0 0.5rem;
     position: relative;
-    top: 0.2rem;
+    top: 0.4rem;
+    accent-color: var(--color-bg);
 }
+    progress:hover {
+        accent-color: var(--color-accent);
+    }
 select {
     margin: 0;
 }
