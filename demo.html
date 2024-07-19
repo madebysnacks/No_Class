@@ -109,6 +109,17 @@
         #lists article:not(:first-of-type) {
             margin: 1rem 0 0;
         }
+        dl {
+            margin: 1rem 0 0;
+        }
+
+        form {
+            gap: 2rem;
+            flex-flow: row nowrap;
+        }
+        article {
+            margin: 1rem 0 0;
+        }
         address,
         section > p+label {
             margin: 1rem 0 0;
@@ -118,12 +129,17 @@
         address {
             flex-flow: column nowrap;
         }
+        #type section {
+            margin: 1rem 0 0;
+        }
             @media screen and (min-width:768px) {
-                #lists {
+                #lists, #type section {
                     display: flex;
                     flex-flow: row nowrap;
+                    gap: 2rem;
                 }
                     #lists article,
+                    #type article,
                     #lists article:not(:first-of-type) {
                         margin: 0;
                         display: flex;
@@ -138,18 +154,18 @@
     <header>
         <section>
             <h6 class="demo_headline">No_Class Demo</h6>
-            <p><b>No_Class</b> is a <u>modern</u> stylesheet driven <em>exclusively</em> by <mark>native</mark> markup. Does you project have No_Class ? Get started by visiting <a href="https://github.com/madebysnacks/No_Class">the Github page</a> and reviewing this demo page.</p>
+            <p><b>No_Class</b> is a <u>modern</u> stylesheet driven <em>exclusively</em> by <mark>native</mark> markup. Get started by visiting <a href="https://github.com/madebysnacks/No_Class">the Github page</a> and reviewing this demo page. Does you project have No_Class ?</p>
         </section>
     </header>
     <main>
         <h6 class="demo_headline">Getting started</h6>
-        <p>To get started, download the latest from Github or paste the following in the <code>&lt;head&gt;</code> tag of your HTML or PHP file:</p>
+        <p>To get started, download the latest from Github or paste the following in the <code>&lt;head&gt;</code> tag of your markup:</p>
         <pre>
             <code>&lt;link rel="stylesheet" href="https://raw.githubusercontent.com/madebysnacks/No_Class/main/no_class.css"&gt;</code>
         </pre>
         <br>
-        <p>Using CSS Variables, No_Class supports easy theme customization and switching.
-            <br><b>See</b>:
+        <p>Using CSS Variables, No_Class supports easy theme switching and customization.
+            <br><b>Check it out</b>:
             <input type="checkbox" id="theme-toggle" />
             <label for="theme-toggle"> Dark mode</label>
         </p>
@@ -191,7 +207,7 @@
             </article>
         </section>
         <h6 class="demo_headline">Common, Inline Type Styles</h6>
-        <section>
+        <section id="type">
             <p><code>a</code> It is a super common thing to <a>reference a link</a> when writing.</p>
             <p><code>abbr</code> It is human nature, not <abbr data-title="We do not care if our children die as long as they die in a ditch and not in the road, where they will make it bumpy for our vehicles.">alien nature</abbr>.</p>
             <p><code>em</code> <em>Cranking Metallica.</em> Is that some sort of drug reference ? It's not funny.</p>
@@ -201,19 +217,32 @@
             <p><code>mark</code> Oy with <mark>the poodles</mark> already!</p>
             <p><code>q</code> The boy says, <q>there's a monkey on the branch</q>.</p>
             <p><code>s</code> Definitive, not <s>derivative</s>. Faux poes foes.</p>
+            <p><code>samp</code> SnacksOS console: <samp> Your refrigerator likes your mailbox's latest status update</samp>.</p>
             <p><code>sub</code> Aut harum molestias labore amet exercitationem <sub>[aperiam earum]</sub> doloribus.</p>
             <p><code>sup</code> Lorem ipsum dolor <sup>[sit amet consectetur adipisicing]</sup> elit.</p>
             <p><code>time</code> The demon woke me up at <time datetime="03:00">3:00 AM</time>.</p>
             <p><code>u</code> One day it occurred to me <u>cows never wrinkle</u>.</p>
-            <br>
-            <p>Address:</p>
-            <address>
-                <b>Camp Nou</b>
-                <p>
-                C. d'Aristides Maillol 12 <br>
-                08028 Barcelona<br>
-                Spain</p>
-            </address>
+            <section>
+                <article>
+                    <p>Address:</p>
+                    <address>
+                        <b>Camp Nou</b>
+                        <p>
+                        C. d'Aristides Maillol 12 <br>
+                        08028 Barcelona<br>
+                        Spain</p>
+                    </address>
+                </article>
+                <article>
+                    <p>Data List:</p>
+                    <dl>
+                        <dt>Coffee</dt>
+                        <dd>Black hot drink</dd>
+                        <dt>Milk</dt>
+                        <dd>White cold drink</dd>
+                    </dl>
+                </article>
+            </section>
         </section>
         <h6 class="demo_headline">Spacing</h6>
         <section>
@@ -237,6 +266,7 @@
         <section>
             <form>
                 <fieldset>
+                    <legend>Form Legend</legend>
                     <label for="text">Text</label>
                     <input type="text" name="text" placeholder="Your Name">
                     <label for="email">Email (required)</label>
@@ -262,6 +292,9 @@
                     </datalist>
                     <label for="about">Textarea</label>
                     <textarea name="about" id="about" placeholder="And how does that make you feel..."></textarea>
+                    <br><br>
+                    <input type="submit" value="Submit">
+                    <input type="reset" value="Reset">
                 </fieldset>
                 <fieldset>
                     <label>Only select one:</label>
@@ -292,8 +325,10 @@
                         <!-- next -->
                     </aside>
                 </fieldset>
-                <input type="submit" value="Submit">
-                <input type="reset" value="Reset">
+                <!-- <fieldset>
+                    <input type="submit" value="Submit">
+                    <input type="reset" value="Reset">
+                </fieldset> -->
             </form>
         </section>
         <h6 class="demo_headline">Table</h6>

@@ -57,7 +57,7 @@ body {
     width: 100%;
     word-break: break-word;
     word-wrap: break-word;
-	overflow-wrap: break-word;
+    overflow-wrap: break-word;
     -webkit-font-smoothing: antialiased;
 }
 a, button, input[type="submit"], input[type="reset"], input[type="button"] {
@@ -73,7 +73,7 @@ a, button, input[type="submit"], input[type="reset"], input[type="button"] {
 }
 button[disabled], input[type="submit"][disabled], input[type="reset"][disabled], input[type="button"][disabled] {
     cursor: not-allowed;
-	opacity: 0.5;
+    opacity: 0.5;
 }
 a {
     color: dodgerblue;
@@ -120,6 +120,7 @@ address {
     padding: 0.5rem 1rem;
     -webkit-user-select: all;
     user-select: all;
+    width: 100%;
 }
 article {
     margin: 0;
@@ -242,7 +243,7 @@ details {
         border: 1px solid var(--color-tertiary);
     }
     details summary {
-        font-weight: bold;
+        font-weight: 600;
         cursor: pointer;
     }
         details summary:hover {
@@ -339,18 +340,37 @@ dialog {
     dialog h4 {
         margin: 0 0 var(--space-xs);
     }
-dd {
-	margin: 0;
-    padding: 0;
+dl {
+    margin: 1rem 0 0;
+    border: 2px solid var(--color-tertiary);
+    border-radius: var(--border-radius);
+    padding: 0.5rem 1rem;
+    display: grid;
+    grid-gap: 0.25rem 2rem;
+    grid-template-columns: max-content;
 }
-    dd::before {
-        content: '→ ';
-    }
 dt {
-	font-weight: 600;
+    font-weight: 600;
 }
-    fieldset legend {font-weight:bold; padding:0 1rem 0 0;}
-        fieldset:hover legend {padding:0 0 0 1rem;}
+    dt::after {
+        content: ': ';
+    }
+dd {
+    margin: 0;
+    padding: 0;
+    grid-column-start: 2;
+    text-align: right;
+}
+    fieldset legend {
+        display: flex;
+        color: var(--color-accent);
+        width: 100%;
+        font-style: italic;
+        font-size: 0.8rem;
+        padding: 0.4rem 0;
+        margin: 0 0 1rem;
+        border-bottom: 1px dashed;
+    }
     fieldset ul {margin: 0; padding:0 0 0 1rem;}
 figcaption {
     margin: 0;
@@ -433,9 +453,9 @@ form {
 
     form input[type="range"] {
         color: var(--color-accent);
-        --thumb-height: 1.125em;
+        --thumb-height: 0.75em;
         --track-height: 0.125em;
-        --track-color: var(--color-bg);
+        --track-color: var(--color-tertiary);
         --brightness-hover: 180%;
         --brightness-down: 80%;
         --clip-edges: 0.125em;
@@ -546,9 +566,6 @@ ins {
 label {
     margin: 0;
 }
-legend {
-    font-size: 0.6rem;
-}
 mark {
     background: var(--color-fill);
 }
@@ -606,6 +623,9 @@ progress {
     progress:hover {
         accent-color: var(--color-accent);
     }
+samp {
+    font-size: 1rem;
+}
 select {
     margin: 0;
 }
@@ -663,7 +683,7 @@ textarea {
     resize: vertical;
 }
 time {
-    font-weight: bold;
+    font-weight: 600;
     text-decoration: underline;
     font-size: 1.2rem;
 }
@@ -700,7 +720,7 @@ html:has(body #theme-toggle:checked) {
     form input[type=email],
     form input[type=tel],
     form textarea {
-        min-width: 75%;
+        min-width: 100%;
     }
 }
 @media screen and (min-width:1024px) {
