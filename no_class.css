@@ -75,6 +75,9 @@ button[disabled], input[type="submit"][disabled], input[type="reset"][disabled],
     cursor: not-allowed;
     opacity: 0.5;
 }
+*[disabled] {
+    cursor: not-allowed;
+}
 a {
     color: dodgerblue;
     text-decoration: underline;
@@ -152,6 +155,9 @@ audio {
 b, strong, q {
     font-size: inherit;
     font-weight: 600;
+}
+strong {
+    color: var(--color-accent);
 }
 blockquote {
     margin: 1rem 0 0;
@@ -342,13 +348,18 @@ dialog {
     }
 dl {
     margin: 1rem 0 0;
-    border: 2px solid var(--color-tertiary);
     border-radius: var(--border-radius);
-    padding: 0.5rem 1rem;
+    padding: 0;
     display: grid;
-    grid-gap: 0.25rem 2rem;
+    grid-gap: 0.25rem 0;
     grid-template-columns: max-content;
 }
+dt, dd {
+    border-bottom: 1px solid var(--color-tertiary);
+}
+    dl:hover dt, dl:hover dd {
+        border-bottom: 1px solid var(--color-bg);
+    }
 dt {
     font-weight: 600;
 }
@@ -367,11 +378,22 @@ dd {
         width: 100%;
         font-style: italic;
         font-size: 0.8rem;
-        padding: 0.4rem 0;
+        padding: 0.4rem 0 0.4rem 0.4rem;
         margin: 0 0 1rem;
+        border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        border-left: 0.4rem solid;
         border-bottom: 1px dashed;
+        border-right: 1px dashed;
+        border-top: 1px dashed;
     }
     fieldset ul {margin: 0; padding:0 0 0 1rem;}
+    form fieldset > fieldset {
+        margin: 0;
+    }
+    form fieldset > fieldset > div {
+        width: 100%;
+        margin: 1rem 0 0;
+    }
 figcaption {
     margin: 0;
 }
@@ -395,17 +417,20 @@ form {
     border-radius: var(--border-radius);
     text-align: left;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column nowrap;
     justify-content: flex-start;
     align-items: flex-start;
 }
     form fieldset {
-        margin: 0 0 var(--space-xs);
+        margin: 0;
         width: 100%;
         outline: none;
         border: none;
     }
-    form fieldset > label {
+    form>fieldset:not(:first-of-type) {
+        margin: 1rem 0 0;
+    }
+    form fieldset label {
         display: flex;
         font-weight: 600;
         margin-bottom: 0.25rem;
@@ -431,6 +456,7 @@ form {
     form input[type=checkbox],
     form input[type=checkbox] + label {
         display: inline-flex;
+        font-weight: normal;
     }
     form input[type=submit],
     form input[type=reset] {
@@ -447,7 +473,7 @@ form {
     }
     form input[type="range"] {
         font-size: 1.5rem;
-        width: 12.5em;
+        width: 100%;
         border: none;
     }
 
@@ -575,6 +601,22 @@ meter {
 nav {
     margin: 0;
 }
+    nav > a {
+        text-decoration: none;
+        display: inline-block;
+    }
+    nav > a:hover {
+        text-decoration: underline;
+    }
+    nav > a:not(:last-of-type):after {
+        content: "/";
+        margin: 0 0 0 0.4rem;
+        text-decoration: none;
+        display: inline-block;
+    }
+    nav > a:hover::after {
+        text-decoration: none;
+    }
 pre {
     display: flex;
     margin: 1rem 0 0;
@@ -689,7 +731,7 @@ time {
 }
 
 html:has(body #theme-toggle:checked) {
-    color-scheme:              dark;
+    color-scheme:               dark;
     --color-primary:            #000;
     --color-secondary:          #1D1D1F;
     --color-tertiary:           #333333;
@@ -711,9 +753,24 @@ html:has(body #theme-toggle:checked) {
     h2 {font-size: 40px; line-height: 1.1;}
     h3 {font-size: 32px; line-height: 1.12;}
     h4 {font-size: 28px; line-height: 1.42;}
-    form fieldset {
-        width: 50%;
+    form fieldset > fieldset {
+        width: 100%;
+        margin: 1rem 0 0;
     }
+    fieldset > fieldset {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 2rem;
+        width: 100%;
+        margin: 1rem 0 0;
+    }
+    form>fieldset:not(:first-of-type) {
+        margin: 0;
+    }
+        form fieldset > fieldset > div {
+            width: 100%;
+            margin: 0;
+        }
     form select,
     form input[name=datalist],
     form input[type=text],
@@ -733,6 +790,13 @@ html:has(body #theme-toggle:checked) {
     h2 {font-size: 48px; line-height: 1.05;}
     h3 {font-size: 40px; line-height: 1.1;}
     h4 {font-size: 32px; line-height: 1.12;}
+    form {
+        gap: 2rem;
+        flex-flow: row nowrap;
+    }
+    form fieldset {
+        width: 50%;
+    }
 }
 @media print {
     body, pre, code, summary, details, button, input, textarea, section, aside, nav, time, span, table {

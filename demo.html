@@ -75,8 +75,8 @@
         }
         header h6.demo_headline {color: var(--color-bg);}
         h6.demo_headline+h1 {padding-top:0;}
-        p>code {
-            min-width: 3.2rem;
+        p>code:first-of-type {
+            min-width: 4.2rem;
             text-align: center;
             margin-right: 0.25rem;
         }
@@ -109,13 +109,8 @@
         #lists article:not(:first-of-type) {
             margin: 1rem 0 0;
         }
-        dl {
+        dl, nav, button#show {
             margin: 1rem 0 0;
-        }
-
-        form {
-            gap: 2rem;
-            flex-flow: row nowrap;
         }
         article {
             margin: 1rem 0 0;
@@ -129,24 +124,40 @@
         address {
             flex-flow: column nowrap;
         }
-        #type section {
+        #components section {
             margin: 1rem 0 0;
         }
-            @media screen and (min-width:768px) {
-                #lists, #type section {
-                    display: flex;
-                    flex-flow: row nowrap;
-                    gap: 2rem;
-                }
-                    #lists article,
-                    #type article,
-                    #lists article:not(:first-of-type) {
-                        margin: 0;
-                        display: flex;
-                        width: 33.3333%;
-                        flex-flow: column nowrap;
-                    }
+
+        /* media queries */
+
+        @media screen and (min-width:480px) {
+            #lists {
+                display: flex;
+                flex-flow: row wrap;
             }
+            #lists article {
+                display: flex;
+                flex-flow: column nowrap;
+                width: 50%;
+            }
+        }
+
+        @media screen and (min-width:768px) {
+            #lists,
+            #components section {
+                display: flex;
+                flex-flow: row nowrap;
+                gap: 2rem;
+            }
+                #lists article,
+                #components article,
+                #lists article:not(:first-of-type) {
+                    margin: 0;
+                    display: flex;
+                    width: 33.3333%;
+                    flex-flow: column nowrap;
+                }
+        }
     </style>
     <title>No Class Demo</title>
 </head>
@@ -208,41 +219,81 @@
         </section>
         <h6 class="demo_headline">Common, Inline Type Styles</h6>
         <section id="type">
-            <p><code>a</code> It is a super common thing to <a>reference a link</a> when writing.</p>
+            <p><code>a</code> It is super common to <a>reference a link</a> when writing.</p>
             <p><code>abbr</code> It is human nature, not <abbr data-title="We do not care if our children die as long as they die in a ditch and not in the road, where they will make it bumpy for our vehicles.">alien nature</abbr>.</p>
+            <p><code>b</code> Let me tell you—<b>This is important</b>!</p>
             <p><code>em</code> <em>Cranking Metallica.</em> Is that some sort of drug reference ? It's not funny.</p>
             <p><code>dfn</code> <dfn>Adipisicing harum</dfn>: Babbette ate oatmeal.</p>
-            <p><code>ins</code> Sometimes you need to <del>cut out</del> <ins>correct</ins> little things when you write.</p>
+            <p><code>del</code> Sometimes you need to <del>cut out</del> little things when you write.</p>
+            <p><code>ins</code> Sometimes you need to <ins>correct</ins> little things when you write.</p>
             <p><code>kbd</code> Hold down the <kbd>cmd</kbd> and <kbd>F</kbd> keys to find some text.</p>
             <p><code>mark</code> Oy with <mark>the poodles</mark> already!</p>
             <p><code>q</code> The boy says, <q>there's a monkey on the branch</q>.</p>
             <p><code>s</code> Definitive, not <s>derivative</s>. Faux poes foes.</p>
-            <p><code>samp</code> SnacksOS console: <samp> Your refrigerator likes your mailbox's latest status update</samp>.</p>
+            <p><code>samp</code> SnacksOS console: <samp> Your refrigerator likes your mailbox's latest status update.</samp></p>
+            <p><code>small</code> Shine a bright light <small> into the body</small> to kill the Covid.</p>
+            <p><code>strong</code> No one <strong>really knows</strong> how this is different from <code>b</code> so add some color.</p>
             <p><code>sub</code> Aut harum molestias labore amet exercitationem <sub>[aperiam earum]</sub> doloribus.</p>
             <p><code>sup</code> Lorem ipsum dolor <sup>[sit amet consectetur adipisicing]</sup> elit.</p>
             <p><code>time</code> The demon woke me up at <time datetime="03:00">3:00 AM</time>.</p>
             <p><code>u</code> One day it occurred to me <u>cows never wrinkle</u>.</p>
-            <section>
-                <article>
-                    <p>Address:</p>
-                    <address>
-                        <b>Camp Nou</b>
-                        <p>
-                        C. d'Aristides Maillol 12 <br>
-                        08028 Barcelona<br>
-                        Spain</p>
-                    </address>
-                </article>
-                <article>
-                    <p>Data List:</p>
-                    <dl>
-                        <dt>Coffee</dt>
-                        <dd>Black hot drink</dd>
-                        <dt>Milk</dt>
-                        <dd>White cold drink</dd>
-                    </dl>
-                </article>
-            </section>
+        </section>
+        <h6 class="demo_headline">Lists</h6>
+        <section id="lists">
+            <article>
+                <p>Unordered list:</p>
+                <ul>
+                    <li>Dove</li>
+                    <li>Jay
+                        <ul>
+                            <li>Dove</li>
+                            <li>Jay
+                                <ul>
+                                    <li>Dove</li>
+                                    <li>Jay</li>
+                                    <li>Robin</li>
+                                </ul>
+                            </li>
+                            <li>Robin</li>
+                        </ul>
+                    </li>
+                    <li>Robin</li>
+                </ul>
+            </article>
+            <article>
+                <p>Ordered list:</p>
+                <ol>
+                    <li>Dove</li>
+                    <li>Jay
+                        <ol>
+                            <li>Dove
+                                <ol>
+                                    <li>Dove</li>
+                                    <li>Jay</li>
+                                    <li>Robin</li>
+                                </ol>
+                            </li>
+                            <li>Jay</li>
+                            <li>Robin</li>
+                        </ol>
+                    </li>
+                    <li>Robin</li>
+                </ol>
+            </article>
+            <article>
+                <p>Menu:</p>
+                <menu>
+                    <li>Dove</li>
+                    <li>Jay</li>
+                    <li>Robin</li>
+                    <li>Dove</li>
+                    <li>Jay</li>
+                    <li>Robin</li>
+                    <li>Dove</li>
+                    <li>Jay</li>
+                    <li>Robin</li>
+                </menu>
+            </article>
         </section>
         <h6 class="demo_headline">Spacing</h6>
         <section>
@@ -266,69 +317,85 @@
         <section>
             <form>
                 <fieldset>
-                    <legend>Form Legend</legend>
+                    <legend>&#9827; Fieldset Legend &#9829;</legend>
                     <label for="text">Text</label>
                     <input type="text" name="text" placeholder="Your Name">
                     <label for="email">Email (required)</label>
                     <input type="email" required name="email" id="email" placeholder="hello@madebysnacks.com">
-                    <label for="id">Read-only</label>
-                    <input type="text" readonly name="id" id="id" value="8008135">
-                    <label for="disabled">Disabled</label>
-                    <input type="text" disabled name="disabled" id="disabled" placeholder="Can't touch me">
-                    <label>Dropdown:</label>
-                    <select name="cast" id="bluths">
-                        <option>Select</option>
-                        <option value="Michael">Michael</option>
-                        <option value="Buster">Buster</option>
-                        <option value="Lindsay">Lindsay</option>
-                        <option value="Gob">Gob</option>
-                    </select>
-                    <label>Datalist:</label>
-                    <input list="teams" name="datalist">
-                    <datalist id="teams">
-                        <option value="Chelsea"></option>
-                        <option value="Tottenham"></option>
-                        <option value="Liverpool"></option>
-                    </datalist>
+                    
+                    <fieldset>
+                        <div>
+                            <label>Dropdown:</label>
+                            <select name="cast" id="bluths">
+                                <option>Select</option>
+                                <option value="Michael">Michael</option>
+                                <option value="Buster">Buster</option>
+                                <option value="Lindsay">Lindsay</option>
+                                <option value="Gob">Gob</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>Datalist:</label>
+                            <input list="teams" name="datalist">
+                            <datalist id="teams">
+                                <option value="Chelsea"></option>
+                                <option value="Tottenham"></option>
+                                <option value="Liverpool"></option>
+                            </datalist>
+                        </div>
+                    </fieldset>
+                    
                     <label for="about">Textarea</label>
                     <textarea name="about" id="about" placeholder="And how does that make you feel..."></textarea>
-                    <br><br>
-                    <input type="submit" value="Submit">
-                    <input type="reset" value="Reset">
                 </fieldset>
                 <fieldset>
-                    <label>Only select one:</label>
-                    <aside>
-                        <input type="radio" id="radio1" name="fullName" value="radio1">
-                        <label for="radio1">Radio 1</label>
-                        <br>
-                        <input type="radio" id="radio2" name="fullName" value="radio2">
-                        <label for="radio2">Radio 2</label>
-                        <br>
-                        <input type="radio" id="radio3" name="fullName" value="radio3">
-                        <label for="radio3">Radio 3</label>
-                    </aside>
-                    <label>Select one or more:</label>
-                    <aside>
-                        <input type="checkbox" name="check" id="check">
-                        <label for="check">Checkbox 1</label>
-                        <br>
-                        <input type="checkbox" name="check" id="check2">
-                        <label for="check2">Checkbox 2</label>
-                        <br>
-                        <input type="checkbox" name="check" id="check3">
-                        <label for="check3">Checkbox 3</label>
-                    </aside>
                     <label>Range:</label>
                     <input type="range">
-                    <aside>
-                        <!-- next -->
-                    </aside>
-                </fieldset>
-                <!-- <fieldset>
+
+                    <fieldset>
+                        <div>
+                            <label>Only select one:</label>
+                            <aside>
+                                <input type="radio" id="radio1" name="fullName" value="radio1">
+                                <label for="radio1">Radio 1</label>
+                                <br>
+                                <input type="radio" id="radio2" name="fullName" value="radio2">
+                                <label for="radio2">Radio 2</label>
+                                <br>
+                                <input type="radio" id="radio3" name="fullName" value="radio3">
+                                <label for="radio3">Radio 3</label>
+                            </aside>
+                        </div>
+                        <div>
+                            <label>Select one or more:</label>
+                            <aside>
+                                <input type="checkbox" name="check" id="check">
+                                <label for="check">Checkbox 1</label>
+                                <br>
+                                <input type="checkbox" name="check" id="check2">
+                                <label for="check2">Checkbox 2</label>
+                                <br>
+                                <input type="checkbox" name="check" id="check3">
+                                <label for="check3">Checkbox 3</label>
+                            </aside>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <div>
+                            <label for="id">Read-only</label>
+                            <input type="text" readonly name="id" id="id" value="8008135">
+                        </div>
+                        <div>
+                            <label for="disabled">Disabled</label>
+                            <input type="text" disabled name="disabled" id="disabled" placeholder="Can't touch me">
+                        </div>
+                    </fieldset>
+
+                    <br>
                     <input type="submit" value="Submit">
-                    <input type="reset" value="Reset">
-                </fieldset> -->
+                    <input type="reset" value="&#x21bb; Reset">
+                </fieldset>
             </form>
         </section>
         <h6 class="demo_headline">Table</h6>
@@ -374,15 +441,20 @@
             </table>
         </section>
         <h6 class="demo_headline">Components</h6>
-        <section>
+        <section id="components">
+            <p>Progress:</p>
+            <label for="downloading"><em>Downloading update:</em></label>
+            <progress id="downloading" value="68" max="100"></progress><strong>68%</strong>
+            <br><br>
             <dialog id="window">  
                 <button id="exit" autofocus>Close</button>
                 <h4>Modal was once Dialog</h4>
                 <p>And it still is, you rotten scoundrels. Get off my lawn.</p>
                 <p>One nice thing is that you can click outside of this and use the <kbd>esc</kbd> key to close this... Dialog.</p>
             </dialog>
-            <p>Dialog: <button id="show">Open Now</button> </p>
-            <br>
+            <p>Dialog:</p>
+            <button id="show">Open Now</button>
+            <br><br>
             <p>Blockquote:</p>
             <blockquote cite="https://en.wikipedia.org/wiki/Resident_Alien_(TV_series)">
                 <span>Gravel is big dirt.</span>
@@ -398,67 +470,42 @@
                 <summary>Read more</summary>
                 <p>Most people say accordion, but it's called details and summary. Isn't that funny?</p>
             </details>
-            <br>
-            <p>Progress:</p>
-            <label for="downloading">Downloading update:</label>
-            <progress id="downloading" value="68" max="100"></progress><span>68%</span>
-        </section>
-        <h6 class="demo_headline">Lists</h6>
-        <section id="lists">
-            <article>
-                <p>Menu:</p>
-                <menu>
-                    <li>Dove</li>
-                    <li>Jay</li>
-                    <li>Robin</li>
-                    <li>Dove</li>
-                    <li>Jay</li>
-                    <li>Robin</li>
-                    <li>Dove</li>
-                    <li>Jay</li>
-                    <li>Robin</li>
-                </menu>
-            </article>
-            <article>
-                <p>Unordered list:</p>
-                <ul>
-                    <li>Dove</li>
-                    <li>Jay
-                        <ul>
-                            <li>Dove</li>
-                            <li>Jay
-                                <ul>
-                                    <li>Dove</li>
-                                    <li>Jay</li>
-                                    <li>Robin</li>
-                                </ul>
-                            </li>
-                            <li>Robin</li>
-                        </ul>
-                    </li>
-                    <li>Robin</li>
-                </ul>
-            </article>
-            <article>
-                <p>Ordered list:</p>
-                <ol>
-                    <li>Dove</li>
-                    <li>Jay
-                        <ol>
-                            <li>Dove
-                                <ol>
-                                    <li>Dove</li>
-                                    <li>Jay</li>
-                                    <li>Robin</li>
-                                </ol>
-                            </li>
-                            <li>Jay</li>
-                            <li>Robin</li>
-                        </ol>
-                    </li>
-                    <li>Robin</li>
-                </ol>
-            </article>
+            <section>
+                <article>
+                    <p>Address:</p>
+                    <address>
+                        <b>Camp Nou</b>
+                        <p>
+                        C. d'Aristides Maillol 12 <br>
+                        08028 Barcelona<br>
+                        Spain</p>
+                    </address>
+                </article>
+                <article>
+                    <p>Data List:</p>
+                    <dl>
+                        <dt>RAM</dt>
+                        <dd>16 GB</dd>
+                        <dt>Screen Size</dt>
+                        <dd>5.84 in.</dd>
+                        <dt>Lock Status</dt>
+                        <dd>Unlocked</dd>
+                        <dt>Network</dt>
+                        <dd>GSM / LTE</dd>
+                        <dt>Gluten Free</dt>
+                        <dd>Yes</dd>
+                    </dl>
+                </article>
+                <article>
+                    <p>Nav:</p>
+                    <nav>
+                        <a>Hansel</a>
+                        <a>Gretel</a>
+                        <a>Witch</a>
+                        <a>Breadcrumb</a>
+                    </nav>
+                </article>
+            </section>
         </section>
     </main>
     <footer>
@@ -495,7 +542,7 @@
             }
         }
         dialog.addEventListener("click", onClick);
-        const showButton = document.querySelector("dialog + p>button");
+        const showButton = document.querySelector("button#show");
         const closeButton = document.querySelector("dialog button");
         showButton.addEventListener("click", () => {
             dialog.showModal();
