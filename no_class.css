@@ -23,7 +23,7 @@ Snacks Studio | https://www.madebysnacks.com
     
     --border-color:         var(--color-tertiary);
     --border-radius:        0.25rem;
-    --pg-width:            1000px;
+    --pg-width:             1000px;
 
     --animation-duration:   0.1s;
 }
@@ -48,10 +48,11 @@ html {
     touch-action: manipulation;
     -webkit-text-size-adjust: 100%;
     -webkit-touch-callout: none;
-    width: 100vw;
+    width: 100%;
 }
 body {
     font-family: var(--font-primary);
+    font-size: 1.125rem;
     line-height: 1.4;
     overflow-x: hidden;
     width: 100%;
@@ -448,6 +449,7 @@ form {
         border: 1px solid var(--color-tertiary);
         border-radius: var(--border-radius);
         padding: 1px 2px;
+        font-size: 1.125rem;
         min-width: 100%;
     }
     form textarea {min-height: var(--space-md);}
