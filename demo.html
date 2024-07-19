@@ -48,10 +48,10 @@
             cursor: default;
             display: flex;
             width: 100%;
-            padding: 0 0 0 0.5rem;
+            padding: 0 0.5rem;
             align-items: center;
             flex-flow: row nowrap;
-            font-size: 0.8rem;
+            justify-content: center;
         }
             .space:not(:first-of-type) {margin: var(--space-xs) 0 0;}
             .space:hover {background: var(--color-primary);}
@@ -60,6 +60,14 @@
         .space.md {height:var(--space-md);}
         .space.sm {height:var(--space-sm);}
         .space.xs {height:var(--space-xs);}
+
+            .space samp {
+                width: 100%;
+                font-size: 0.8rem;
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: space-between;
+            }
         
         header section, main {
             padding: 0 1rem;
@@ -298,19 +306,19 @@
         <h6 class="demo_headline">Spacing</h6>
         <section>
             <div class="space xl">
-                <samp>space-xl (LG, MD, SM: 80px)</samp>
+                <samp><span>space-xl</span><span>(LG, MD, SM: 80px)</span></samp>
             </div>
             <div class="space lg">
-                <samp>space-lg (LG: 64px, MD: 56px, SM: 48px)</samp>
+                <samp><span>space-lg</span><span>(LG: 64px, MD: 56px, SM: 48px)</span></samp>
             </div>
             <div class="space md">
-                <samp>space-md (LG: 56px, MD: 48px, SM: 40px)</samp>
+                <samp><span>space-md</span><span>(LG: 56px, MD: 48px, SM: 40px)</span></samp>
             </div>
             <div class="space sm">
-                <samp>space-sm (LG: 32px, MD: 24px, SM: 20px)</samp>
+                <samp><span>space-sm</span><span>(LG: 32px, MD: 24px, SM: 20px)</span></samp>
             </div>
             <div class="space xs">
-                <samp>space-xs (LG, MD, SM: 14px)</samp>
+                <samp><span>space-xs</span><span>(LG, MD, SM: 14px)</span></samp>
             </div>
         </section>
         <h6 class="demo_headline">Form</h6>
@@ -482,7 +490,7 @@
                     </address>
                 </article>
                 <article>
-                    <p>Data List:</p>
+                    <p>DL, DD, DT:</p>
                     <dl>
                         <dt>RAM</dt>
                         <dd>16 GB</dd>
