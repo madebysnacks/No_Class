@@ -415,12 +415,11 @@ figcaption {
     margin: 0;
 }
 footer {
-    background: var(--color-secondary);
     border-top: 1px solid var(--color-tertiary);
     padding: var(--space-sm) 0;
     margin: var(--space-xl) 0 0;
 }
-    footer main {
+    footer section {
         display: flex;
         flex-flow: row nowrap;
         justify-content: flex-end;
@@ -716,8 +715,12 @@ table {
     table caption {
         text-align: left;
         font-size: 0.8rem;
-        padding: 0 0 var(--space-xs);
+        padding: 0.5rem 1rem;
+        margin: 0 0 1rem;
         font-style: italic;
+        background: var(--color-tertiary);
+        width: fit-content;
+        border-radius: 3rem;
     }
     table td, table th {
         padding: 0.25rem 1rem 0.25rem 0.25rem;
