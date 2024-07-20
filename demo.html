@@ -19,12 +19,6 @@
     <meta property="og:site_name" content="No Class - Snacks Studio">
     <meta property="og:description" content="No Class - Snacks Studio"/>
     <meta property="og:locale" content="en_US">
-    <!-- <meta property="og:image" content="og-image.png"/>
-    <meta property="og:image:width" content="1200"/>
-    <meta property="og:image:height" content="600"/>
-    <link rel="icon" href="favicon.svg" sizes="16x16">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png" sizes="512x512"> -->
     <meta name="robots" CONTENT="all, index, follow">
     <meta name="GOOGLEBOT" CONTENT="INDEX, FOLLOW">
     <meta name="geo.region" content="US-TX">
@@ -60,7 +54,6 @@
         .space.md {height:var(--space-md);}
         .space.sm {height:var(--space-sm);}
         .space.xs {height:var(--space-xs);}
-
             .space samp {
                 width: 100%;
                 font-size: 0.8rem;
@@ -68,7 +61,6 @@
                 flex-flow: row nowrap;
                 justify-content: space-between;
             }
-        
         header section, main {
             padding: 0 1rem;
             margin: 0 auto;
@@ -117,13 +109,9 @@
         #lists article:not(:first-of-type) {
             margin: 1rem 0 0;
         }
-        dl, nav, button#show {
-            margin: 1rem 0 0;
-        }
         article {
             margin: 1rem 0 0;
         }
-        address,
         section > p+label {
             margin: 1rem 0 0;
             position: relative;
@@ -135,6 +123,17 @@
         #components section {
             margin: 1rem 0 0;
         }
+        ol#references {
+            font-size: 0.8rem;
+            margin: 0;
+        }
+        ol#references:target {
+        animation: yellowflash-bg 2s;
+      }
+      @keyframes yellowflash-bg {
+        from { background: var(--color-fill); }
+        to   { background: transparent; }
+      }
 
         /* media queries */
 
@@ -149,7 +148,6 @@
                 width: 50%;
             }
         }
-
         @media screen and (min-width:768px) {
             #lists,
             #components section {
@@ -229,7 +227,8 @@
         <section id="type">
             <p><code>a</code> It is super common to <a>reference a link</a> when writing.</p>
             <p><code>abbr</code> It is human nature, not <abbr data-title="We do not care if our children die as long as they die in a ditch and not in the road, where they will make it bumpy for our vehicles.">alien nature</abbr>.</p>
-            <p><code>b</code> Let me tell you—<b>This is important</b>!</p>
+            <p><code>b</code> I’ll do it—<b>but only for the attention</b>!</p>
+            <p><code>cite</code> What can you do? Medicine is not a science. <cite><a href="#references">1</a></cite></p>
             <p><code>em</code> <em>Cranking Metallica.</em> Is that some sort of drug reference ? It's not funny.</p>
             <p><code>dfn</code> <dfn>Adipisicing harum</dfn>: Babbette ate oatmeal.</p>
             <p><code>del</code> Sometimes you need to <del>cut out</del> little things when you write.</p>
@@ -238,68 +237,69 @@
             <p><code>mark</code> Oy with <mark>the poodles</mark> already!</p>
             <p><code>q</code> The boy says, <q>there's a monkey on the branch</q>.</p>
             <p><code>s</code> Definitive, not <s>derivative</s>. Faux poes foes.</p>
-            <p><code>samp</code> SnacksOS console: <samp> Your refrigerator likes your mailbox's latest status update.</samp></p>
+            <p><code>samp</code> SnacksOS console: <samp> Your refrigerator likes your mailbox's status update.</samp></p>
             <p><code>small</code> Shine a bright light <small> into the body</small> to kill the Covid.</p>
             <p><code>strong</code> No one <strong>really knows</strong> how this is different from <code>b</code> so add some color.</p>
-            <p><code>sub</code> Aut harum molestias labore amet exercitationem <sub>[aperiam earum]</sub> doloribus.</p>
-            <p><code>sup</code> Lorem ipsum dolor <sup>[sit amet consectetur adipisicing]</sup> elit.</p>
+            <p><code>sub</code> I'm a star! I'm on top! <sub>Somebody bring me some ham!</sub></p>
+            <p><code>sup</code> Just took Mom a whole five minutes before <sup>[she self-combusted and]</sup> left the room in tears.</p>
             <p><code>time</code> The demon woke me up at <time datetime="03:00">3:00 AM</time>.</p>
             <p><code>u</code> One day it occurred to me <u>cows never wrinkle</u>.</p>
         </section>
         <h6 class="demo_headline">Lists</h6>
         <section id="lists">
             <article>
-                <p>Unordered list:</p>
+                <p>Unordered:</p>
                 <ul>
-                    <li>Dove</li>
-                    <li>Jay
+                    <li>Neptune</li>
+                    <li>Jupiter
                         <ul>
-                            <li>Dove</li>
-                            <li>Jay
+                            <li>Ganymede</li>
+                            <li>Callisto
                                 <ul>
-                                    <li>Dove</li>
-                                    <li>Jay</li>
-                                    <li>Robin</li>
+                                    <li>"The Callistan Menace”</li>
+                                    <li>“Farmer in the Sky”</li>
+                                    <li>“The Mold of Yancy”</li>
                                 </ul>
                             </li>
-                            <li>Robin</li>
+                            <li>Io</li>
+                            <li>Europa</li>
                         </ul>
                     </li>
-                    <li>Robin</li>
                 </ul>
             </article>
             <article>
-                <p>Ordered list:</p>
+                <p>Ordered:</p>
                 <ol>
-                    <li>Dove</li>
-                    <li>Jay
+                    <li>Aleksey Miranchuk</li>
+                    <li>Simone Mazzocchi
                         <ol>
-                            <li>Dove
+                            <li>El Bilal Touré
                                 <ol>
-                                    <li>Dove</li>
-                                    <li>Jay</li>
-                                    <li>Robin</li>
+                                    <li>Gianluca Scamacca</li>
+                                    <li>Marten de Roon</li>
+                                    <li>Éderson</li>
                                 </ol>
                             </li>
-                            <li>Jay</li>
-                            <li>Robin</li>
+                            <li>Charles De Ketelaere</li>
+                            <li>Nicolo Zaniolo</li>
                         </ol>
                     </li>
-                    <li>Robin</li>
+                    <li>
+                        Ademola Lookman</li>
                 </ol>
             </article>
             <article>
                 <p>Menu:</p>
                 <menu>
-                    <li>Dove</li>
-                    <li>Jay</li>
-                    <li>Robin</li>
-                    <li>Dove</li>
-                    <li>Jay</li>
-                    <li>Robin</li>
-                    <li>Dove</li>
-                    <li>Jay</li>
-                    <li>Robin</li>
+                    <li>Liz Lemon</li>
+                    <li>Jack Donaghy</li>
+                    <li>Tracy Jordan</li>
+                    <li>Jenna Maroney</li>
+                    <li>Kenneth Parcell</li>
+                    <li>Dennis Duffy</li>
+                    <li>Toofer Spurlock</li>
+                    <li>Devon Banks</li>
+                    <li>Josh Girard</li>
                 </menu>
             </article>
         </section>
@@ -409,6 +409,7 @@
         <h6 class="demo_headline">Table</h6>
         <section>
             <table>
+                <caption>EVIL the television show</caption>
                 <thead>
                     <tr>
                         <th>Ep. No.</th>
@@ -444,76 +445,87 @@
                     </tr>
                 </tbody>
                 <tfoot>
-                    <tr><td colspan="4">See full list of episodes in <a target="_blank" href="https://en.wikipedia.org/wiki/Evil_(TV_series)#Season_3_(2022)">Season 3</a>  of <em>Evil</em>.</td></tr>
+                    <tr><td colspan="4">See full list of episodes in <a target="_blank" href="https://en.wikipedia.org/wiki/Evil_(TV_series)#Season_3_(2022)">Season 3</a>  of <em>EVIL</em>.</td></tr>
                 </tfoot>
             </table>
         </section>
-        <h6 class="demo_headline">Components</h6>
+        <h6 class="demo_headline">Progress</h6>
         <section id="components">
-            <p>Progress:</p>
             <label for="downloading"><em>Downloading update:</em></label>
             <progress id="downloading" value="68" max="100"></progress><strong>68%</strong>
-            <br><br>
+        </section>
+        <h6 class="demo_headline">Dialog (Modal)</h6>
+        <section>
             <dialog id="window">  
                 <button id="exit" autofocus>Close</button>
                 <h4>Modal was once Dialog</h4>
                 <p>And it still is, you rotten scoundrels. Get off my lawn.</p>
                 <p>One nice thing is that you can click outside of this and use the <kbd>esc</kbd> key to close this... Dialog.</p>
             </dialog>
-            <p>Dialog:</p>
             <button id="show">Open Now</button>
-            <br><br>
-            <p>Blockquote:</p>
+        </section>
+        <h6 class="demo_headline">Blockquote</h6>
+        <section>
             <blockquote cite="https://en.wikipedia.org/wiki/Resident_Alien_(TV_series)">
                 <span>Gravel is big dirt.</span>
                 <footer>Dr. Harry Vanderspeigle - <cite>Patience, Colorado</cite></footer>
             </blockquote>
-            <br>
-            <p>Accordion:</p>
+        </section>
+        <h6 class="demo_headline">Details (Accordion)</h6>
+        <section>
             <details>
                 <summary>Read more</summary>
-                <p>Most people say accordion, but it's called details and summary. Isn't that funny?</p>
+                <p>This guy's risking everything. His job, his reputation... -Yes, well, he'll always have Paris.</p>
             </details>
             <details>
                 <summary>Read more</summary>
-                <p>Most people say accordion, but it's called details and summary. Isn't that funny?</p>
+                <p>You know what people told me when I said you were coming here to live with me? They told me I was crazy, they told me I was insane, they told me to start writing letters to Jodie Foster.</p>
             </details>
-            <section>
-                <article>
-                    <p>Address:</p>
-                    <address>
-                        <b>Camp Nou</b>
-                        <p>
-                        C. d'Aristides Maillol 12 <br>
-                        08028 Barcelona<br>
-                        Spain</p>
-                    </address>
-                </article>
-                <article>
-                    <p>DL, DD, DT:</p>
-                    <dl>
-                        <dt>RAM</dt>
-                        <dd>16 GB</dd>
-                        <dt>Screen Size</dt>
-                        <dd>5.84 in.</dd>
-                        <dt>Lock Status</dt>
-                        <dd>Unlocked</dd>
-                        <dt>Network</dt>
-                        <dd>GSM / LTE</dd>
-                        <dt>Gluten Free</dt>
-                        <dd>Yes</dd>
-                    </dl>
-                </article>
-                <article>
-                    <p>Nav:</p>
-                    <nav>
-                        <a>Hansel</a>
-                        <a>Gretel</a>
-                        <a>Witch</a>
-                        <a>Breadcrumb</a>
-                    </nav>
-                </article>
-            </section>
+            <details>
+                <summary>Read more</summary>
+                <p>FRANCIE: You do not wanna be my enemy, Marlo Thomas. RORY: I think I do, Tina Louise.</p>
+            </details>
+        </section>
+        <h6 class="demo_headline">Address</h6>
+        <section>
+            <address>
+                <b>Camp Nou</b>
+                <p>
+                C. d'Aristides Maillol 12 <br>
+                08028 Barcelona<br>
+                Spain</p>
+            </address>
+        </section>
+        <h6 class="demo_headline">DL, DD, DT</h6>
+        <section>
+            <dl>
+                <dt>RAM</dt>
+                <dd>16 GB</dd>
+                <dt>Screen Size</dt>
+                <dd>5.84 in.</dd>
+                <dt>Lock Status</dt>
+                <dd>Unlocked</dd>
+                <dt>Network</dt>
+                <dd>GSM / LTE</dd>
+                <dt>Gluten Free</dt>
+                <dd>Yes</dd>
+            </dl>
+        </section>
+        <h6 class="demo_headline">Nav</h6>
+        <section>
+            <nav>
+                <a>Hansel</a>
+                <a>Gretel</a>
+                <a>Witch</a>
+                <a>Breadcrumb</a>
+            </nav>
+        </section>
+        </section>
+        <h6 class="demo_headline">References</h6>
+        <section>
+            <ol id="references">
+                <li>Dr. Leo Spaceman</li>
+            </ol>
         </section>
     </main>
     <footer>
