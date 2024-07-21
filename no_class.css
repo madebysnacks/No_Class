@@ -251,6 +251,9 @@ del {
     color: red;
     margin: 0;
 }
+summary::-webkit-details-marker {
+    display:none;
+ }
 details {
     margin: 0;
     padding: 0.5rem;
@@ -268,6 +271,7 @@ details {
     details summary {
         font-weight: 600;
         cursor: pointer;
+        display: block;
     }
         details summary:hover {
             color: var(--color-accent);
@@ -688,6 +692,8 @@ samp {
 }
 select {
     margin: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
 select::-ms-expand {
     display: none;
@@ -769,6 +775,9 @@ html:has(body #theme-toggle:checked) {
 /* Media Queries */
 
 @media (prefers-reduced-motion: reduce) {html {scroll-behavior: auto;}}
+@media screen and (hover:hover) and (min-width:480px) {
+    html {font-size: var(--rem-base);}
+}
 @media screen and (min-width:768px) {
     :root {
         --space-lg:         3.5rem;
