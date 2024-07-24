@@ -18,12 +18,30 @@ No_Class is a blank slate. No_Class encourages minimalism, efficiency, and creat
 ## Why make this ?
 No_Brainer. Semantic HTML markup provides dozens of usable targets to start and maintain your projects. This blank slate perspective enables more creativity and opportunities for expression. No_Class uses this foundation to provide the best, leanest, and most efficient stylesheet that can help kickstart any web based idea. It is designed to look great on all screen sizes and devices, and it is set up for rapid prototyping and scalability.
 
+### Features
+- Modern
+- Scalable
+- Minimal
+- Organized
+- Responsive
+- Fast
+
 ## Is this right for my project ?
 No_Idea. But if you value modern, clean code and semantic markup structure, then chances are you may think Yes! With a set of CSS variables predefined and all usable HTML markup tags accounted for, No_Class is built to configure and scale. Rather than getting overwhelmed by CSS, enjoy being surprised and delighted by CSS. Instead of hunting and researching how best to reference a tome of hundreds of custom classes, start with a clean slate. You do not have to believe this, but you do not really need a hundred different `div`s. At one time, for some scenarios, that was reasonable, but with the constantly growing list of new markup tags available it is almost criminal to not utilize what is freely available.
 
 ## There are other frameworks like this
 No_Kidding. And some of them are great. No_Offense if you choose one of those. Honestly, doing so is the whole point in the grand scheme of things. Chipping away at the blind follower count of Bootstrap is God's work. Definitely check out water.css, mvp.css, new.css, and the others.
 
----
+### What makes this so great ?
+- Not a single CSS class in sight
+- Support for CSS Variables
+- Support for variable font size
+- Accessibility conditions for users who prefer reduced motion
+- Media queries for printers
+- Loved by SEO indexes
+- Easy to read, customize, and scale
+- Layout agnostic (BYOLayout)
+- Tested with latest browsers (July 2024)
 
+## License
 No_Class is released under the permissive MIT license so you can freely use it however you like. Personal projects, commercial ventures, and errant forks that have No_Class are all cool. Happy coding.
