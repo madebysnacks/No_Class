@@ -215,15 +215,15 @@ caption {
 }
 cite {
     margin: 0;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-style: normal;
     position: relative;
-    top: -0.25rem;
+    top: -0.3rem;
 }
     cite a {
         text-decoration: none;
         color: inherit;
-        padding: 0.1rem 1rem;
+        padding: 0 0.75rem;
         background: var(--color-secondary);
         border-radius: 3rem;
         border: 1px solid var(--color-tertiary);
@@ -828,6 +828,8 @@ html:has(body #theme-toggle:checked) {
     h2 {font-size: 48px; line-height: 1.05;}
     h3 {font-size: 40px; line-height: 1.1;}
     h4 {font-size: 32px; line-height: 1.12;}
+}
+@media screen and (min-width:1280px) {
     form {
         gap: 2rem;
         flex-flow: row nowrap;
