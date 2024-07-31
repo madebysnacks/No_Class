@@ -1,9 +1,10 @@
 /*
 No_Class | https://github.com/madebysnacks/No_Class
 Snacks Studio | https://www.madebysnacks.com
-Version | 1.0.0
-Last Published Date | July 24, 2024
+Version 1.0.0
+Last Published July 31, 2024
 */
+
 @font-face {font-family:'add_font_name_here'; src:url(fonts/font_file_name.ttf);}
 :root {
     --font-primary:         Helvetica, Arial, sans-serif;
@@ -15,20 +16,22 @@ Last Published Date | July 24, 2024
     --color-tertiary:       #DDDDDD;
     --color-link:           dodgerblue;
     --color-accent:         #163bdd;
+    --color-accent-10:      #163bdd10;
     --color-bg:             #1D1D1D;
     --color-fill:           #fff396;
 
-    --space-xl:             5rem;
-    --space-lg:             3rem;
-    --space-md:             2.5rem;
-    --space-sm:             1.25rem;
     --space-xs:             0.875rem;
+    --space-sm:             1.25rem;
+    --space-md:             2.5rem;
+    --space-lg:             3rem;
+    --space-xl:             5rem;
     
     --border-color:         var(--color-tertiary);
     --border-radius:        0.25rem;
     --pg-width:             1000px;
 
-    --animation-duration:   0.1s;
+    --animation-duration:   0.12s;
+    accent-color:           var(--color-accent);
 }
 *, *::before, *::after {
     box-sizing: border-box;
@@ -37,8 +40,8 @@ Last Published Date | July 24, 2024
     vertical-align: baseline;
 }
 -moz-::selection, -webkit-::selection, ::selection {
-    color: var(--color-primary);
     background: var(--color-bg);
+    color: var(--color-primary);
 }
 [hidden] {display:none;}
 html {
@@ -58,11 +61,11 @@ body {
     font-size: 1.125rem;
     line-height: 1.4;
     overflow-x: hidden;
-    width: 100%;
-    word-break: break-word;
-    word-wrap: break-word;
     overflow-wrap: break-word;
     -webkit-font-smoothing: antialiased;
+    word-break: break-word;
+    word-wrap: break-word;
+    width: 100%;
 }
 a, button, input[type="submit"], input[type="reset"], input[type="button"] {
     border: none;
@@ -79,16 +82,12 @@ button[disabled], input[type="submit"][disabled], input[type="reset"][disabled],
     cursor: not-allowed;
     opacity: 0.5;
 }
-*[disabled] {
-    cursor: not-allowed;
-}
+*[disabled] {cursor:not-allowed;}
 a {
     color: var(--color-link);
     text-decoration: underline;
 }
-    a:hover {
-        color: var(--color-accent);
-    }
+    a:hover {color:var(--color-accent);}
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-primary);
     font-style: normal;
@@ -107,55 +106,59 @@ abbr {
     border-bottom: 1px dotted;
     cursor: default;
 }
-    abbr:hover::after {
-        content: attr(data-title);
-        position: absolute;
-        font-size: 1rem;
-        top: 90%;
-        width: 14rem;
-        left: 60%;
-        display: flex;
-        padding: 0.5rem 0.7rem;
+    abbr:hover::after,
+    abbr:active::after {
         background: var(--color-bg);
         border-radius: var(--border-radius);
         color: var(--color-primary);
+        content: attr(data-title);
+        display: flex;
+        font-size: 1rem;
+        left: 60%;
+        padding: 0.5rem 0.7rem;
+        position: absolute;
+        top: 90%;
+        width: 14rem;
         z-index: 1;
     }
 address {
-    font-size: 1.1rem;
     border: 3px dashed var(--color-tertiary);
     border-radius: var(--border-radius);
+    font-size: 1.1rem;
     padding: 0.5rem 1rem;
     -webkit-user-select: all;
     user-select: all;
     width: 100%;
 }
-article {
+audio {
     margin: 0;
 }
-aside {
+article, aside, header, footer, main {
     margin: 0;
 }
-    aside > h1,
-    aside > h2,
-    aside > h3,
-    aside > h4,
-    aside > h5,
-    aside > h6 {
-        margin: 0;
-        padding: 0;
-    }
-main {
+aside > h1,
+blockquote > h1,
+aside > h2,
+blockquote > h2,
+aside > h3,
+blockquote > h3,
+aside > h4,
+blockquote > h4,
+aside > h5,
+blockquote > h5,
+aside > h6,
+blockquote > h6 {
     margin: 0;
+    padding: 0;
+}
+:is(aside>h1, aside>h2, aside>h3, aside>h4, aside>h5, aside>h6) {
+    text-wrap: balance;
 }
 section {
     margin: 0;
     overflow-x: auto;
     overflow-y: hidden;
     width: 100%;
-}
-audio {
-    margin: 0;
 }
 b, strong, q {
     font-size: inherit;
@@ -165,29 +168,15 @@ strong {
     color: var(--color-accent);
 }
 blockquote {
-    margin: 0;
-    padding: 0.5rem;
     background: var(--color-secondary);
-    border-left: 4px solid var(--color-tertiary);
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: var(--space-sm) var(--space-xs);
 }
-    blockquote span {
-        font-size: 2rem;
-        font-style: italic;
-        font-weight: 600;
-    }
-    blockquote span::before {
-        content: '\201C';
-    }
-    blockquote span::after {
-        content: '\201D';
-    }
-    blockquote footer {
-        padding: 0;
-        margin: 0;
-        background: none;
-        border: none;
-        font-size: 0.9rem;
-    }
 br {
     margin: 0;
 }
@@ -215,10 +204,10 @@ caption {
 }
 cite {
     margin: 0;
-    font-size: 0.75rem;
+    font-size: 0.65rem;
     font-style: normal;
     position: relative;
-    top: -0.3rem;
+    top: -0.4rem;
 }
     cite a {
         text-decoration: none;
@@ -244,9 +233,9 @@ code {
     position: relative;
     top: -0.1rem;
 }
-p code {
-    display: inline-block;
-}
+    p code {
+        display: inline-block;
+    }
 datalist {
     margin: 0;
 }
@@ -276,14 +265,18 @@ details {
         cursor: pointer;
         display: block;
     }
-        details summary:hover {
+        details:hover {
             color: var(--color-accent);
+            background-color: var(--color-accent-10);
+        }
+        details:hover p {
+            color: var(--color-bg);
         }
     details[open] {
         padding-bottom: 0.75rem;
     }
         details[open] summary {
-            margin-bottom: 6px;
+            padding-bottom: 0.25rem;
         }
     details > :last-child {
         margin-bottom: 0;
@@ -299,7 +292,7 @@ dfn {
     text-transform: uppercase;
     margin: 0;
 }
-dialog {  
+dialog {
     background: var(--color-secondary);
     border: 1px solid var(--color-tertiary);
     border-radius: var(--border-radius);
@@ -307,25 +300,22 @@ dialog {
     flex-flow: column nowrap;
     padding: 1rem 1rem 3rem;
     position: fixed;
-    top: 2rem;
     margin: 0 auto;
-    width: 100%;
-    max-width: 640px;
-    z-index: 1;
-
-}
-dialog[open] {
-    opacity: 1;
-    transform: translateY(2rem);
-}
-dialog {
     opacity: 0;
+    top: 2rem;
     transform: translateY(3rem);
     transition:
         opacity 0.2s ease-out,
         transform 0.2s ease-in-out,
         overlay 0.2s ease-out allow-discrete,
         display 0.2s ease-out allow-discrete;
+    max-width: 640px;
+    width: 100%;
+    z-index: 1;
+}
+dialog[open] {
+    opacity: 1;
+    transform: translateY(2rem);
 }
   @starting-style {
     dialog[open] {
@@ -340,33 +330,32 @@ dialog {
       overlay 0.7s allow-discrete,
       background-color 0.7s;
   }
-  
   dialog[open]::backdrop {
     background-color: rgb(0 0 0 / 25%);
   }
-  
-  @starting-style {
-    dialog[open]::backdrop {
-      background-color: rgb(0 0 0 / 0%);
+    @starting-style {
+        dialog[open]::backdrop {
+        background-color: rgb(0 0 0 / 0%);
+        }
     }
-  }
     dialog button#exit {
-        margin: 0 0 0 auto;
+        border-radius: var(--border-radius);
         display: flex;
+        margin: 0 0 0 auto;
         position: relative;
         background: var(--color-primary);
     }
-    dialog button#exit:hover {
-        background: var(--color-secondary);
-    }
-    dialog button#exit::before {
-        content: '×';
-        font-size: 1.4rem;
-        line-height: 1.2rem;
-        position: relative;
-        padding: 0 0.5rem 0 0;
-        top: 0;
-    }
+        dialog button#exit:hover {
+            background: var(--color-secondary);
+        }
+        dialog button#exit::before {
+            content: '×';
+            font-size: 1.4rem;
+            line-height: 1.2rem;
+            position: relative;
+            padding: 0 0.5rem 0 0;
+            top: 0.05rem;
+        }
     dialog h4 {
         margin: 0 0 var(--space-xs);
     }
@@ -384,12 +373,8 @@ dt, dd {
     dl:hover dt, dl:hover dd {
         border-bottom: 1px solid var(--color-bg);
     }
-dt {
-    font-weight: 600;
-}
-    dt::after {
-        content: ': ';
-    }
+dt {font-weight:600;}
+    dt::after {content:': ';}
 dd {
     margin: 0;
     padding: 0;
@@ -398,19 +383,17 @@ dd {
 }
     fieldset legend {
         display: flex;
+        background-color: var(--color-accent-10);
         color: var(--color-accent);
         width: 100%;
         font-style: italic;
         font-size: 0.8rem;
         padding: 0.4rem 0 0.4rem 0.4rem;
         margin: 0 0 1rem;
-        border-radius: 0 var(--border-radius) var(--border-radius) 0;
-        border-left: 0.4rem solid;
-        border-bottom: 1px dashed;
-        border-right: 1px dashed;
-        border-top: 1px dashed;
+        border: 1px solid var(--color-accent);
+        border-radius: var(--border-radius);
     }
-    fieldset ul {margin: 0; padding:0 0 0 1rem;}
+    fieldset ul {margin:0; padding:0 0 0 1rem;}
     form fieldset > fieldset {
         margin: 0;
     }
@@ -418,21 +401,7 @@ dd {
         width: 100%;
         margin: 1rem 0 0;
     }
-figcaption {
-    margin: 0;
-}
-footer {
-    border-top: 1px solid var(--color-tertiary);
-    padding: var(--space-sm) 0;
-    margin: var(--space-xl) 0 0;
-}
-    footer section {
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: flex-end;
-        align-items: flex-end;
-        padding: 0 1rem;
-    }
+figcaption {margin:0;}
 form {
     margin: 0;
     padding: 1rem;
@@ -496,43 +465,35 @@ form {
         margin-top: var(--space-xs);
     }
     form input[type="range"] {
-        font-size: 1.5rem;
-        width: 100%;
+        background: #fff0;
         border: none;
-    }
-
-    form input[type="range"] {
         color: var(--color-accent);
-        --thumb-height: 0.75em;
-        --track-height: 0.125em;
-        --track-color: var(--color-tertiary);
+        font-size: 1.5rem;
+        position: relative;
+        overflow: hidden;
+        width: 100%;
         --brightness-hover: 180%;
         --brightness-down: 80%;
         --clip-edges: 0.125em;
+        --thumb-height: 0.75em;
+        --track-color: var(--color-tertiary);
+        --track-height: 0.125em;
     }
-    form input[type=range] {
-        position: relative;
-        background: #fff0;
-        overflow: hidden;
-    }
-
     form input[type=range]:active {
         cursor: grabbing;
     }
-    input[type="range"],
-    input[type="range"]::-webkit-slider-runnable-track,
-    input[type="range"]::-webkit-slider-thumb {
+    form input[type="range"],
+    form input[type="range"]::-webkit-slider-runnable-track,
+    form input[type="range"]::-webkit-slider-thumb {
         -webkit-appearance: none;
         transition: all ease 100ms;
         height: var(--thumb-height);
     }
-
-    input[type="range"]::-webkit-slider-runnable-track,
-    input[type="range"]::-webkit-slider-thumb {
+    form input[type="range"]::-webkit-slider-runnable-track,
+    form input[type="range"]::-webkit-slider-thumb {
         position: relative;
     }
-
-    input[type="range"]::-webkit-slider-thumb {
+    form input[type="range"]::-webkit-slider-thumb {
         --thumb-radius: calc((var(--thumb-height) * 0.5) - 1px);
         --clip-top: calc((var(--thumb-height) - var(--track-height)) * 0.5 - 0.5px);
         --clip-bottom: calc(var(--thumb-height) - var(--clip-top));
@@ -559,23 +520,19 @@ form {
             var(--clip-further) var(--clip-further)
         );
     }
-
-    input[type="range"]:hover::-webkit-slider-thumb {
+    form input[type="range"]:hover::-webkit-slider-thumb {
         filter: brightness(var(--brightness-hover));
         cursor: grab;
     }
-
-    input[type="range"]:active::-webkit-slider-thumb {
+    form input[type="range"]:active::-webkit-slider-thumb {
         filter: brightness(var(--brightness-down));
         cursor: grabbing;
     }
-
-    input[type="range"]::-webkit-slider-runnable-track {
+    form input[type="range"]::-webkit-slider-runnable-track {
         background: linear-gradient(var(--track-color) 0 0) scroll no-repeat center /
             100% calc(var(--track-height) + 1px);
     }
-
-    input[type="range"]:disabled::-webkit-slider-thumb {
+    form input[type="range"]:disabled::-webkit-slider-thumb {
         cursor: not-allowed;
     }
 kbd {
@@ -584,11 +541,6 @@ kbd {
     font-size: 0.95rem;
     font-weight: 600;
     border-radius: var(--border-radius);
-}
-header {
-    background: var(--color-secondary);
-    margin: 0;
-    padding-bottom: var(--space-md);
 }
 hr {
     height: 1px;
@@ -644,17 +596,17 @@ nav {
     }
 pre {
     display: flex;
-    margin: 1rem 0 0;
+    margin: 0;
 }
-pre > code {
-    padding: 0.5rem;
-    display: inline-block;
-    overflow-x: auto;
-    top: 0;
-    -webkit-user-select: all;
-    user-select: all;
-}
-pre > code + button {
+    pre > code {
+        padding: 0.5rem;
+        display: inline-block;
+        overflow-x: auto;
+        top: 0;
+        -webkit-user-select: all;
+        user-select: all;
+    }
+    pre > code + button {
     margin-left: 1rem;
 }
 ol, ul {
@@ -667,18 +619,36 @@ ol, ul {
         list-style-type: lower-roman;
     }
 menu {
-    margin: 0 0 0 0.2rem;
     list-style: none;
+    display: flex;
+    flex-flow: row nowrap;
+    overflow-x: auto;
+    min-width: 100%;
+    padding: 0 0 2rem;
 }
-menu li::before {
-    content:'— ';
-}
+    menu li {
+        height: 10rem;
+        min-width: 20rem;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+        margin-right: 2rem;
+        border-radius: var(--border-radius);
+        border: 1px solid var(--color-tertiary);
+        background: var(--color-secondary);
+    }
+    menu li:last-of-type {
+        margin-right: 0;
+    }
 q {
     font-style: italic;
 }
 p {
     font-size: 1.125rem;
     padding-top: 0.2rem;
+    text-wrap: pretty;
 }
 progress {
     height: 1.5rem;
@@ -727,9 +697,9 @@ table {
         padding: 0.5rem 1rem;
         margin: 0 0 1rem;
         font-style: italic;
-        background: var(--color-tertiary);
+        background: var(--color-secondary);
+        border-left: 4px solid var(--color-tertiary);
         width: fit-content;
-        border-radius: 3rem;
     }
     table td, table th {
         padding: 0.25rem 1rem 0.25rem 0.25rem;
@@ -765,49 +735,52 @@ time {
     font-size: 1.2rem;
 }
 
+/* Dark Mode */
 html:has(body #theme-toggle:checked) {
     color-scheme:               dark;
-    --color-primary:            #000;
+    --color-primary:            #000000;
     --color-secondary:          #1D1D1F;
     --color-tertiary:           #333333;
-    --color-accent:             magenta;
+    --color-accent:             #ff00ff;
+    --color-accent-10:          #ff00ff20;
     --color-bg:                 white;
-    --color-fill:               magenta;
+    --color-fill:               #ff00ff;
 }
 
 /* Media Queries */
-
-@media (prefers-reduced-motion: reduce) {html {scroll-behavior: auto;}}
+@media (prefers-reduced-motion: reduce) {
+    html {scroll-behavior:auto;}
+}
 @media screen and (hover:hover) and (min-width:480px) {
-    html {font-size: var(--rem-base);}
+    html {font-size:var(--rem-base);}
 }
 @media screen and (min-width:768px) {
     :root {
-        --space-lg:         3.5rem;
-        --space-md:         3rem;
-        --space-sm:         1.5rem;
+        --space-lg: 3.5rem;
+        --space-md: 3rem;
+        --space-sm: 1.5rem;
     }
     h1 {font-size: 48px; line-height: 1.1;}
     h2 {font-size: 40px; line-height: 1.1;}
     h3 {font-size: 32px; line-height: 1.12;}
     h4 {font-size: 28px; line-height: 1.42;}
     form fieldset > fieldset {
-        width: 100%;
         margin: 1rem 0 0;
+        width: 100%;
     }
     fieldset > fieldset {
         display: flex;
         flex-flow: row nowrap;
         gap: 1rem;
-        width: 100%;
         margin: 1rem 0 0;
+        width: 100%;
     }
     form>fieldset:not(:first-of-type) {
         margin: 0;
     }
         form fieldset > fieldset > div {
-            width: 100%;
             margin: 0;
+            width: 100%;
         }
     form select,
     form input[name=datalist],
@@ -820,9 +793,9 @@ html:has(body #theme-toggle:checked) {
 }
 @media screen and (min-width:1024px) {
     :root {
-        --space-lg:         4rem;
-        --space-md:         3.5rem;
-        --space-sm:         2rem;
+        --space-lg: 4rem;
+        --space-md: 3.5rem;
+        --space-sm: 2rem;
     }
     h1 {font-size: 64px; line-height: 1.05;}
     h2 {font-size: 48px; line-height: 1.05;}
@@ -831,8 +804,8 @@ html:has(body #theme-toggle:checked) {
 }
 @media screen and (min-width:1280px) {
     form {
-        gap: 2rem;
         flex-flow: row nowrap;
+        gap: 2rem;
     }
     form fieldset {
         width: 50%;
