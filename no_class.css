@@ -2,12 +2,12 @@
 No_Class | https://github.com/madebysnacks/No_Class
 Snacks Studio | https://www.madebysnacks.com
 Version 1.0.1
-Last Published August 2, 2024
+Last Published October 27, 2024
 */
 
 @font-face {font-family:'add_font_name_here'; src:url(fonts/font_file_name.ttf);}
 :root {
-    --font-primary:         Helvetica, Arial, sans-serif;
+    --font-primary:         Helvetica, Arial, sans-serif, -apple-system, system-ui;
     --font-secondary:       serif;
     --rem-base:             16px;
 
@@ -25,12 +25,16 @@ Last Published August 2, 2024
     --space-md:             2.5rem;
     --space-lg:             3rem;
     --space-xl:             5rem;
+
+    --gap:                  1rem;
+    --gap-double:           calc(var(--gap) * 2);
     
     --border-color:         var(--color-tertiary);
     --border-radius:        0.25rem;
     --pg-width:             1000px;
 
     --animation-duration:   0.12s;
+
     accent-color:           var(--color-accent);
 }
 *, *::before, *::after {
@@ -46,7 +50,7 @@ Last Published August 2, 2024
 [hidden] {display:none;}
 html {
     font-size: var(--rem-base);
-    font: -apple-system-body;
+    font: var(--font-primary);
     scroll-behavior: smooth;
     scrollbar-width: thin;
     -ms-touch-action: manipulation;
@@ -93,7 +97,7 @@ h1, h2, h3, h4, h5, h6 {
     font-style: normal;
     font-weight: 600;
     letter-spacing: -0.01em;
-    padding-top: 0.875rem;
+    padding-top: var(--space-xs);
 }
 h1 {font-size: 40px; line-height: 1.1;}
 h2 {font-size: 32px; line-height: 1.125;}
@@ -273,7 +277,7 @@ details {
             color: var(--color-bg);
         }
     details[open] {
-        padding-bottom: 0.75rem;
+        padding-bottom: var(--space-xs);
     }
         details[open] summary {
             padding-bottom: 0.25rem;
@@ -298,11 +302,11 @@ dialog {
     border-radius: var(--border-radius);
     box-shadow: rgba(14, 63, 126, 0.06) 0px 0px 0px 1px, rgba(42, 51, 70, 0.03) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 2px 2px -1px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.03) 0px 5px 5px -2.5px, rgba(42, 51, 70, 0.03) 0px 10px 10px -5px, rgba(42, 51, 70, 0.03) 0px 24px 24px -8px;
     flex-flow: column nowrap;
-    padding: 1rem 1rem 3rem;
+    padding: var(--gap) var(--gap) var(--space-md);
     position: fixed;
     margin: 0 auto;
     opacity: 0;
-    top: 2rem;
+    top: var(--space-sm);
     transform: translateY(3rem);
     transition:
         opacity 0.2s ease-out,
@@ -335,7 +339,7 @@ dialog[open] {
   }
     @starting-style {
         dialog[open]::backdrop {
-        background-color: rgb(0 0 0 / 0%);
+            background-color: rgb(0 0 0 / 0%);
         }
     }
     dialog button#exit {
@@ -717,6 +721,7 @@ select {
     margin: 0;
     -webkit-appearance: none;
     -moz-appearance: none;
+    appearance: none;
 }
 select::-ms-expand {
     display: none;
