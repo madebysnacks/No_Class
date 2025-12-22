@@ -38,6 +38,7 @@ Last Published December 2, 2025
     --color-accent:       #163bdd;
     --color-accent-10:    #163bdd10;
     --color-bg:           #1d1d1d;
+    --color-font:         #1d1d1d;
     --color-fill:         #fff396;
 
     --space-xs:           0.875rem;
@@ -58,7 +59,7 @@ Last Published December 2, 2025
   /* Text selection */
   ::selection {
     background: var(--color-bg);
-    color: var(--color-primary);
+    color: var(--color-fill);
   }
 
   [hidden] {
@@ -86,6 +87,7 @@ Last Published December 2, 2025
     -webkit-font-smoothing: antialiased;
     word-break: break-word;
     width: 100%;
+    color: var(--color-font);
   }
 
   /* Interactive basics */
@@ -349,7 +351,7 @@ Last Published December 2, 2025
       background-color: var(--color-accent-10);
 
       p {
-        color: var(--color-bg);
+        color: var(--color-font);
       }
     }
 
@@ -385,6 +387,7 @@ Last Published December 2, 2025
   /* DIALOG */
   dialog {
     background: var(--color-secondary);
+    color: var(--color-font);
     border: 1px solid var(--color-tertiary);
     border-radius: var(--border-radius);
     box-shadow:
@@ -410,11 +413,12 @@ Last Published December 2, 2025
       display 0.2s ease-out allow-discrete;
     max-width: 640px;
     width: 100%;
-    z-index: 1;
+    z-index: -1;
 
     &[open] {
       opacity: 1;
       transform: translateY(2rem);
+      z-index: 1;
     }
 
     &::backdrop {
@@ -426,7 +430,8 @@ Last Published December 2, 2025
     }
 
     &[open]::backdrop {
-      background-color: rgb(0 0 0 / 25%);
+      background-color: rgb(0 0 0 / 45%);
+      backdrop-filter: blur(2px);
     }
 
     button#exit {
@@ -1023,14 +1028,15 @@ Last Published December 2, 2025
   html:has(body #theme-toggle:checked) {
     color-scheme: dark;
 
-    --color-primary:   #ffffff;
-    --color-secondary: #1d1d1f;
-    --color-tertiary:  #333333;
+    --color-primary:   #121212;
+    --color-secondary: #29292a;
+    --color-tertiary:  #4e4e4e;
     --color-link:      dodgerblue;
     --color-accent:    #ff00ff;
     --color-accent-10: #ff00ff20;
     --color-bg:        #000000;
     --color-fill:      #ff00ff;
+    --color-font:      #FCFCFC;
   }
 
   /* Dialog starting-style transitions */
